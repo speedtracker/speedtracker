@@ -1,0 +1,14 @@
+@function dp-spacing($unit-factor: 'normal') {
+  @if $unit-factor == 'normal' {
+    @return $dp-room;
+  }
+
+  @if map-has-key($dp-size-units, $unit-factor) {
+    $value: map-get($dp-size-units, $unit-factor);
+    $size: if(unit($value) != "", $dp-base-size / $value, $value);
+
+    @return $size * $dp-room;
+  }
+
+  @error "#{$size} is not a valid unit factor";
+}

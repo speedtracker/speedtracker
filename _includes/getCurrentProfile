@@ -1,0 +1,1 @@
+{% assign currentProfile = '' %}{% for profile in site.profiles %}{% if page.slug %}{% if page.slug == profile.slug %}{% assign currentProfile = profile.slug %}{% endif %}{% else %}{% if profile.default %}{% assign currentProfile = profile.slug %}{% endif %}{% endif %}{% endfor %}{{ currentProfile }}

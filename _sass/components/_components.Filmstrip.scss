@@ -1,0 +1,22 @@
+.c-Filmstrip {
+  overflow: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.c-Filmstrip__item {
+  display: inline-block;
+  
+  & + & {
+    margin-left: 10px;
+  }
+}
+
+.c-Filmstrip__image {
+  border: 1px solid #E8E8E8;
+  width: 270px;
+}
+
+.c-Filmstrip__progress {
+  text-align: center;
+}

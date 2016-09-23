@@ -1,0 +1,15 @@
+$dp-colors: () !default;
+
+@function dp-color($color, $alpha: 1) {
+  @if map-has-key($dp-colors, $color) {
+    @return rgba(map-get($dp-colors, $color), $alpha);
+  }
+  
+  @return unquote($color);
+}
+
+@if map-has-key($dp-colors, 'background') {
+  html {
+    background-color: dp-color('background');
+  }
+}

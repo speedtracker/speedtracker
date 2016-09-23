@@ -1,0 +1,14 @@
+@mixin dp-wrapper($width: $dp-max-width) {
+  max-width: $width;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@mixin dp-wrapper-gutter($width: $dp-max-width, $gutter: $dp-room) {
+  $max-width: (2 * $gutter) + $width;
+
+  @include dp-wrapper($max-width);
+
+  padding-left: $gutter !important;
+  padding-right: $gutter !important;
+}

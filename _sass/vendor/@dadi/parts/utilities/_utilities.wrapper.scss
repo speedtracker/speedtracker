@@ -1,0 +1,7 @@
+.u-wrapper {
+  @include dp-wrapper;
+}
+
+.u-wrapper-gutter {
+  @include dp-wrapper-gutter;
+}

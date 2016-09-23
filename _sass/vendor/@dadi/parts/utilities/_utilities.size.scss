@@ -1,0 +1,5 @@
+@each $size, $value in $dp-size-units {
+  .u-size-#{$size} {
+    font-size: dp-size($size) !important;
+  }
+}

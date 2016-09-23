@@ -1,0 +1,24 @@
+.c-Section {
+  & + & {
+    margin-top: 80px;
+  }
+}
+
+.c-Section__title {
+  background-color: #E8E8E8;
+  border-radius: 10px;
+  color: #EA8C55;
+  font-size: 1.6em;
+  margin-bottom: dp-spacing('large');
+  padding: 10px 20px;
+}
+
+.c-Section__indicators {
+  margin-bottom: dp-spacing('large');
+  margin: -10px 0 20px -30px;
+  padding: 0 10px;
+
+  .c-Indicator {
+    margin: 10px 0 0 30px;
+  }
+}

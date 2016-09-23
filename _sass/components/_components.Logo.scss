@@ -1,0 +1,42 @@
+.c-Logo {
+  display: inline-block;
+  vertical-align: middle;
+  
+  &:hover {
+    .c-Logo__stripe {
+      opacity: 0.3;
+    }
+  }
+}
+
+@keyframes cLogoAnimation {
+  0%, 100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@for $i from 1 through 5 {
+  .c-Logo__stripe--#{$i} {
+    opacity: (6 - $i) * 0.25;
+    animation-delay: $i * 0.07s !important;
+  }
+}
+
+.c-Logo__stripe {
+  fill: currentColor;
+  transition: all 1.2s ease-out;
+  transform-origin: 50% 50%;
+
+  &:not(.c-Logo--animate):hover {
+    opacity: 1 !important;
+    transition: all 0.15s ease-out;
+  }
+
+  .c-Logo--animate & {
+    animation: cLogoAnimation 1s infinite;
+  }
+}

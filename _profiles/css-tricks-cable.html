@@ -1,0 +1,21 @@
+---
+default: true
+interval: 12
+budgets:
+  -
+    metric: TTFB
+    max: 2
+    alerts: ['mainAlert', 'slackAlert']
+  -
+    metric: firstPaint
+    max: 2
+    alerts: ['mainAlert', 'slackAlert']
+name: 'CSS Tricks (Cable)'
+parameters:
+  connectivity: 'Cable'
+  location: 'Dulles:Chrome'
+  firstViewOnly: true
+  runs: 1
+  url: "https://css-tricks.com"
+  video: true
+---

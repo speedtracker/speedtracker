@@ -1,0 +1,17 @@
+$dp-fonts: (
+  'primary': sans-serif
+) !default;
+
+@function dp-font($name) {
+  @if map-has-key($dp-fonts, $name) {
+    @return map-get($dp-fonts, $name);
+  }
+
+  @error "#{$name} is not a valid font name";
+}
+
+html {
+  font-family: dp-font('primary');
+  font-size: $dp-base-size;
+  line-height: $dp-base-line-height;
+}

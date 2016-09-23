@@ -1,0 +1,64 @@
+@if $dp-grid-mode == 'inline-block' {
+  .u-cols {
+    display: inline-block;
+    margin-right: -4px;
+  }
+} @else if $dp-grid-mode == 'float' {
+  .u-cols {
+    @include dp-clearfix;
+
+    .u-col {
+      float: left;
+    }
+  }
+} @else if $dp-grid-mode == 'flex' {
+  .u-cols {
+    display: flex;
+    flex-wrap: wrap;
+
+    .u-col {
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+
+  .u-cols--top {
+    align-items: flex-start;
+  }
+
+  .u-cols--middle {
+    align-items: center;
+  }
+
+  .u-cols--bottom {
+    align-items: flex-end;
+  }
+
+  .u-cols--gutter {
+    font-size: dp-spacing('normal');
+    margin: -1em 0 0 -1em;
+
+    .u-col {
+      padding: 1em 0 0 1em;
+    }
+  }
+
+  .u-cols--equal {
+    @supports (display: flex) {
+      display: flex;
+      flex-wrap: wrap;
+
+      .u-col {
+        display: flex;
+
+        > *:only-child {
+          min-height: 100%;
+        }
+      }      
+    }
+  }
+} @else {
+  @error "#{$dp-grid-mode} is not a valid grid mode";
+}
+
+@include im-columns($im-columns-subdivisions...);

@@ -1,0 +1,25 @@
+detach:  false
+port:    4820
+host:    0.0.0.0
+
+exclude:
+  - app
+  - node_modules
+  - src/results
+  - public
+  - Gemfile*
+  - package.json
+  - speedtracker.yml
+  - webpack.config.js
+
+collections:
+  profiles:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "profiles"
+    values:
+      layout: data
+      permalink: /:path/

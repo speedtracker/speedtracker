@@ -1,0 +1,9 @@
+@each $color, $value in $dp-colors {
+  .u-color-#{$color} {
+    color: $value;
+  }
+
+  .u-background-#{$color} {
+    background-color: $value;
+  }
+}

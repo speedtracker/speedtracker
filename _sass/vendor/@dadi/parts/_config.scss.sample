@@ -1,0 +1,192 @@
+/*
+ ____    ______  ____    ______     
+/\  _`\ /\  _  \/\  _`\ /\__  _\    
+\ \ \/\ \ \ \L\ \ \ \/\ \/_/\ \/    
+ \ \ \ \ \ \  __ \ \ \ \ \ \ \ \    
+  \ \ \_\ \ \ \/\ \ \ \_\ \ \_\ \__ 
+   \ \____/\ \_\ \_\ \____/ /\_____\
+    \/___/  \/_/\/_/\/___/  \/_____/
+                                    
+                                    
+ ____    ______  ____    ______  ____       
+/\  _`\ /\  _  \/\  _`\ /\__  _\/\  _`\     
+\ \ \L\ \ \ \L\ \ \ \L\ \/_/\ \/\ \,\L\_\   
+ \ \ ,__/\ \  __ \ \ ,  /  \ \ \ \/_\__ \   
+  \ \ \/  \ \ \/\ \ \ \\ \  \ \ \  /\ \L\ \ 
+   \ \_\   \ \_\ \_\ \_\ \_\ \ \_\ \ `\____\
+    \/_/    \/_/\/_/\/_/\/ /  \/_/  \/_____/
+    
+          
+          https://github.com/dadi/parts
+*/
+
+// -----------------------------------------------------------------------------
+// Global sizes
+//
+// -> Size units are relative to the base size. For example, if the base size is
+//    set to 16px, then:
+//
+//    $dp-size-units: (
+//      'small': 0.5,
+//      'normal': 1,
+//      'large': 2
+//    );
+//
+//    Will mean that `small` is 8px and `large` is 32px.
+//
+//    You *always* need to include a unit called `normal` (typically set to 1).
+// -----------------------------------------------------------------------------
+
+$dp-base-size: 18px;
+
+$dp-base-line-height: 1.375;
+
+$dp-size-units:(
+  'tiny': 0.25,
+  'small': 0.5,
+  'normal': 1,
+  'large': 1.5,
+  'larger': 2.25,
+  'huge': 3,
+  'massive': 4
+);
+
+// -----------------------------------------------------------------------------
+// Spacing
+//
+// -> `$dp-room` is the equivalent of `$dp-base-size` for spacing. It's used with
+//    margin/padding. Utility classes will be created automatically for every
+//    unit defined in `$dp-size-units`, always relative to `$dp-room`.
+//
+//    Example:
+//
+//    .u-padding {}
+//    .u-padding-large {}
+//    .u-margin-small {}
+//
+//    See utilities/_utilities.size.scss for more information.
+//
+// -----------------------------------------------------------------------------
+
+$dp-room: 15px;
+
+// -----------------------------------------------------------------------------
+// Roundness
+//
+// -> Uses globally in `border-radius`. Optional.
+//
+// -----------------------------------------------------------------------------
+
+$dp-roundness: 5px;
+
+// -----------------------------------------------------------------------------
+// Global maximum width
+//
+// -> The default value to be used by utilities/_utilities.wrapper to create
+//    a wrapper container.
+//
+// -----------------------------------------------------------------------------
+
+$dp-max-width: 990px;
+
+// -----------------------------------------------------------------------------
+// Global font smoothing
+//
+// -> Whether to enable font smoothing globally. If set to `false` (default),
+//    font smoothing can still be enabled individually on any element by using
+//    tools/_tools.font-smoothing.
+//
+// -----------------------------------------------------------------------------
+
+$dp-global-font-smoothing: true;
+
+// -----------------------------------------------------------------------------
+// Responsive breakpoints
+//
+// -> Used by include-media (http://include-media.com). Allows the definition of
+//    media queries using any of the breakpoints defined using a syntax like:
+//
+//    @include media('>=medium') {}
+//    @include media('>medium', '<large') {}
+//    @include media('>large', '<2300px') {}
+//    @include media('retina2x', '<medium') {}
+//
+// -----------------------------------------------------------------------------
+
+$breakpoints: (
+  'medium': 800px,
+  'large': 1000px
+);
+
+// -----------------------------------------------------------------------------
+// Colours
+//
+// -> To be used with the dp-color() function.
+//
+//    body {
+//      background-color: dp-color('background');
+//    }
+//
+// -----------------------------------------------------------------------------
+
+$dp-colors: (
+  'background': #FAFAFA,
+  'text': #111111,
+  'black': #000000,
+  'white': #FFFFFF,
+  'light-grey': #FAFAFA,
+  'grey': #aaa,
+  'mid-grey': #777,
+  'dark-grey': #313131,
+  'bdr-grey': #E0E0E0,
+  'grey-a': #79879b,
+  'grey-b': #475160,
+  'grey-c': #3a424e,
+  'grey-d': #21262d,
+  'blue': #4A91FF,
+  'dark-blue': #17273F,
+  'green': #88C24C,
+  'red': #E5462C,
+  'yellow': #FBBF52,
+  'highlight': #FFFCCC
+);
+
+// -----------------------------------------------------------------------------
+// Global typography settings
+// -----------------------------------------------------------------------------
+
+$dp-fonts: (
+  'primary': ('Karla', 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif)
+);
+
+// -----------------------------------------------------------------------------
+// Custom font declarations
+// -----------------------------------------------------------------------------
+
+@import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+
+// -----------------------------------------------------------------------------
+// Grid classes
+//
+// -> Used by include-media to generate column classes. It uses the breakpoints
+//    defined in `$breakpoints` and the number of subdivisions below to create
+//    classes like .col--{part}-{total} and .col--{part}-{total}@{breakpoint}
+//
+// -> Example: Build an element that takes full width on small screens, 1/2 of
+//             the width on `medium` and 1/3 of the width on `large`
+//
+//    <div class="col col--1-1 col--1-2@medium col--1-3@large"></div>
+//
+// -----------------------------------------------------------------------------
+
+$im-columns-subdivisions: 1, 2, 3, 4, 5, 6;
+$im-columns-class: '.u-col';
+
+// -----------------------------------------------------------------------------
+// Grid mode
+//
+// -> Whether to define grid classes as `float` (default) or `inline-block`
+//
+// -----------------------------------------------------------------------------
+
+$dp-grid-mode: 'flex';
