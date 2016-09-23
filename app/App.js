@@ -40,11 +40,11 @@ class App extends React.Component {
       return (test >= monthFrom) && (test <= monthTo)
     })
 
-    let queue = testsForRange.map(test => {
-      let year = test.toString().slice(0, 4)
-      let month = test.toString().slice(4, 6)
+    const queue = testsForRange.map(test => {
+      const year = test.toString().slice(0, 4)
+      const month = test.toString().slice(4, 6)
 
-      let path = `/results/${this.state.profile.slug}/${year}/${month}.json`
+      const path = `/results/${this.state.profile.slug}/${year}/${month}.json`
 
       return fetch(path).then(response => {
         return response.json()
@@ -93,7 +93,7 @@ class App extends React.Component {
     fetch('/profiles.json').then(response => {
       return response.json()
     }).then(profiles => {
-      let profile = profiles.find(profile => profile.slug === newProfile)
+      const profile = profiles.find(profile => profile.slug === newProfile)
 
       this.setState({
         loading: false,
@@ -104,14 +104,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let dateRange = Utils.getDateRangeForPeriod(this.state.period)
+    const dateRange = Utils.getDateRangeForPeriod(this.state.period)
 
     this._fetchData(dateRange.from, dateRange.to)
   }
 
   componentDidUpdate(oldProps, oldState) {
     if ((oldState.period !== this.state.period) || (oldState.profile !== this.state.profile)) {
-      let dateRange = Utils.getDateRangeForPeriod(this.state.period)
+      const dateRange = Utils.getDateRangeForPeriod(this.state.period)
 
       this._fetchData(dateRange.from, dateRange.to)
     }

@@ -10,7 +10,7 @@ const objectPath = require('object-path')
 class Section extends React.Component {
   render() {
     let budgets = (this.props.profile.budgets || []).filter(budget => (this.props.metrics.indexOf(budget.metric) !== -1))
-    
+
     return (
       <div className="c-Section">
         <h3 className="c-Section__title">{this.props.title}</h3>
@@ -43,15 +43,15 @@ class Section extends React.Component {
           })}
 
           {budgets.map((budget, index) => {
-            let metric = objectPath.get(Constants.metrics, budget.metric)
-            let value = objectPath.get(this.props.lastResult, budget.metric)
+            const metric = objectPath.get(Constants.metrics, budget.metric)
+            const value = objectPath.get(this.props.lastResult, budget.metric)
+            
             let budgetValue = budget.max || budget.min || 0
+            let statusClass = ' c-Indicator--success'
 
             if (typeof metric.transform === 'function') {
-              value = metric.transform(value)
+              budgetValue = metric.transform(budgetValue)
             }
-            
-            let statusClass = ' c-Indicator--success'
 
             if ((budget.max && (value > budgetValue)) ||
                (budget.min && (value < budgetValue))) {
