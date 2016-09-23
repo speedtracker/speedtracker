@@ -1,14 +1,16 @@
+url: "https://demo.speedtracker.org"
+
 encryptionKey: "4256c1af1ed208c5e68ddbc24b41929f7646545be59d9de82edcb21f5874e74d30"
 
 wptKey: "3a4dc6af49d15acce783da914a1491ca73180216e68accf82b96e5160a23b111675d"
 
 alerts:
   mainAlert:
-    type: 'email'
-    recipients: ['1602caa503911e98b5d882e31f47d49f60440e4ded9ccbfd6f81b51b52']
+    type: "email"
+    recipients: ["1602caa503911e98b5d882e31f47d49f60440e4ded9ccbfd6f81b51b52"]
   slackAlert:
-    type: 'slack'
-    hookUrl: '1317d7b95bd841d3b8da82c8090dd29273430a01e186c5b36fcaa4025678b25b2b313ecb72ed46d4c579c537cba46022576186e3397ca0a99f0b838d4deff78378049e719cbde496161c4492f1'
-    channel: '#speedtracker'
-    username: 'SpeedTracker'
-    iconEmoji: ':grimacing:'
+    type: "slack"
+    hookUrl: "1317d7b95bd841d3b8da82c8090dd29273430a01e186c5b36fcaa4025678b25b2b313ecb72ed46d4c579c537cba46022576186e3397ca0a99f0b838d4deff78378049e719cbde496161c4492f1"
+    channel: "#speedtracker"
+    username: "SpeedTracker"
+    iconEmoji: ":grimacing:"
