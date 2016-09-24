@@ -49,13 +49,17 @@ class Section extends React.Component {
             let budgetValue = budget.max || budget.min || 0
             let statusClass = ' c-Indicator--success'
 
-            if (typeof metric.transform === 'function') {
-              budgetValue = metric.transform(budgetValue)
-            }
-
             if ((budget.max && (value > budgetValue)) ||
                (budget.min && (value < budgetValue))) {
               statusClass = ' c-Indicator--danger'
+            }
+
+            console.log('** Budget:', budget)
+            console.log('** Budget value:', budgetValue)
+            console.log('** Value:', value)
+
+            if (typeof metric.transform === 'function') {
+              budgetValue = metric.transform(budgetValue)
             }
 
             if (typeof budgetValue !== 'undefined') {
