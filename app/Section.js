@@ -54,10 +54,6 @@ class Section extends React.Component {
               statusClass = ' c-Indicator--danger'
             }
 
-            console.log('** Budget:', budget)
-            console.log('** Budget value:', budgetValue)
-            console.log('** Value:', value)
-
             if (typeof metric.transform === 'function') {
               budgetValue = metric.transform(budgetValue)
             }
