@@ -2,7 +2,7 @@
 
 # Front-end
 
-*The visualisation layer and data store for SpeedTracker*
+*Visualisation layer and data store for SpeedTracker*
 
 ---
 
