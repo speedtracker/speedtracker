@@ -7,11 +7,11 @@ import * as Utils from './Utils'
 
 class Dashboard extends React.Component {
   render() {
-    let results = this.props.results
-    let timestamps = Object.keys(results)
-    let lastTs = timestamps[timestamps.length - 1]
-    let lastResult = results[lastTs]
-    let videoFrames = (lastResult && lastResult.videoFrames) || []
+    const results = this.props.results
+    const timestamps = Object.keys(results)
+    const lastTs = timestamps[timestamps.length - 1]
+    const lastResult = results[lastTs]
+    const videoFrames = (lastResult && lastResult.videoFrames) || []
 
     return (
       <div className="u-wrapper">
@@ -64,7 +64,7 @@ class Dashboard extends React.Component {
             <h3 className="c-Section__title">Latest filmstrip view</h3>
             <div className="c-Filmstrip">
               {videoFrames.map((frame, index) => {
-                let progress = `${frame._t / 1000}s`
+                const progress = `${frame._t / 1000}s`
 
                 return (
                   <div key={index} className="c-Filmstrip__item">

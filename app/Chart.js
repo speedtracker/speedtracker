@@ -68,9 +68,14 @@ class Chart extends React.Component {
         const lineEnd = lineStart + chart.scales['x-axis-0'].width
 
         chart.config.data.budgets.forEach(budget => {
-          const value = budget.max || budget.min
+          const metric = objectPath.get(Constants.metrics, budget.metric)
+          let value = budget.max || budget.min
 
           if (value) {
+            if (typeof metric.transform === 'function') {
+              value = metric.transform(value)
+            }
+            
             const yValue = chart.scales['y-axis-0'].getPixelForValue(value)
 
             ctx.save()
