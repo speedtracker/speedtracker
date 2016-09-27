@@ -2,4 +2,5 @@
 .jekyll-metadata
 _site/
 node_modules/*
+npm-debug.log
 results/*/*

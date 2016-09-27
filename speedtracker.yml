@@ -1,16 +1,94 @@
-url: "YOUR_URL"
+#
+#             ____                ________             __          
+#            / __/__  ___ ___ ___/ /_  __/______ _____/ /_____ ____
+#           _\ \/ _ \/ -_) -_) _  / / / / __/ _ `/ __/  '_/ -_) __/
+#           ___/ .__/\__/\__/\_,_/ /_/ /_/  \_,_/\__/_/\_\\__/_/   
+#             /_/                                                  
+#                          https://speedtracker.org
+#
 
-encryptionKey: "YOUR_ENCRYPTION_KEY
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  > url                                                                      #
+#                                                                             #
+#  The full URL to your SpeedTracker website. For most people, this will be   #
+#  something like "https://yourusername.github.io/speedtracker", unless you   #
+#  want to use a custom domain.                                               #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+url: "https://yourusername.github.io/speedtracker"
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#                            (!)  PLEASE NOTE:                                #
+#                                                                             #
+#  This config file will be visible to the public eye, unless you're running  #
+#  a private repository. For this reason, we need to obfuscate any sensitive  #
+#  information.                                                               #
+#                                                                             #
+#  Think of a key/password to encrypt your data. You'll need to supply this   #
+#  key with every request you make to SpeedTracker.                           #
+#                                                                             #
+#  The encrypt tool (https://speedtracker.org) allows you to encrypt any      #
+#  given text with a key of your choice. Read on.                             #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  > encryptionKey                                                            #
+#                                                                             #
+#  Open the encrypt tool (https://speedtracker.org) and insert your key on    #
+#  the first input field. Leave the "What do you want to encrypt?" field      #
+#  blank and use the result on the encryptionKey field.                       #
+#                                                                             #
+#  e.g. The key "foobar123" will generate "0a5f0c0670219dc049"                #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+encryptionKey: "0a5f0c0670219dc049"
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  > wptKey                                                                   #
+#                                                                             #
+#  Open the encrypt tool (https://speedtracker.org), insert your key on the   #
+#  first input field (e.g. foobar123) and your WebPageTest API key as the     #
+#  text to encrypt. Use the result on the wptKey field.                       #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 wptKey: "YOUR_WEBPAGETEST_KEY"
 
-alerts:
-  mainAlert:
-    type: "email"
-    recipients: ["ENCRYPTED_EMAIL_ADDRESS"]
-  slackAlert:
-    type: "slack"
-    hookUrl: "ENCRYPTED_SLACK_HOOK_URL"
-    channel: "#speedtracker"
-    username: "SpeedTracker"
-    iconEmoji: ":grimacing:"
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  > alerts                                                                   #
+#                                                                             #
+#  You can define alerts to be triggered when certain events occur (like a    #
+#  metric going over its specified budget). An alert is defined by an id      #
+#  (e.g. emailAlert) and depending on the type (email or slack) it accepts    #
+#  different parameters.                                                      #
+#                                                                             #
+#  Check https://speedtracker.org/docs#alerts for more information.           #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+#alerts:
+#  emailAlert:
+#    type: "email"
+#    recipients: ["ENCRYPTED_EMAIL_ADDRESS"]
+#  otherEmailAlert:
+#    type: "email"
+#    recipients: ["ENCRYPTED_EMAIL_ADDRESS2", "ENCRYPTED_EMAIL_ADDRESS3"]
+#  slackAlert:
+#    type: "slack"
+#    hookUrl: "ENCRYPTED_SLACK_HOOK_URL"
+#    channel: "#speedtracker"
+#    username: "SpeedTracker"
+#    iconEmoji: ":grimacing:"
