@@ -18,7 +18,7 @@ class Footer extends React.Component {
           <ul className="c-Footer__links">
             <li className="c-Footer__link"><a href="https://speedtracker.org">Get your own</a></li>
             <li className="c-Footer__link"><a href="https://github.com/speedtracker">Report an issue</a></li>
-            <li className="c-Footer__link"><a href="https://twitter.com/speedtrackerorg">Follow platform updates</a></li>
+            <li className="c-Footer__link"><a href="https://twitter.com/speed_tracker">Follow platform updates</a></li>
           </ul>
         </div>
       </footer>
