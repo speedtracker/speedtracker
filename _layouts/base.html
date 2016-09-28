@@ -3,18 +3,27 @@ layout: null
 ---
 <!DOCTYPE html>
 <html lang="en">
+
+{% if jekyll.environment == 'development' %}
+  {% assign baseUrl = '' %}
+{% else %}
+  {% assign baseUrl = site.github.url | default: 'site.url' %}
+  {% assign baseUrl = baseUrl | replace: 'http://', '//' %}
+{% endif %}
+
 <head>
   {% include meta.html %}
 
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="{{ baseUrl }}/css/main.css">
 </head>
 <body>
   <div id="root"></div>
 
   {% capture currentProfile %}{% include getCurrentProfile %}{% endcapture %}
 
+  <script>window.BASE_URL = {{ baseUrl | jsonify }}</script>
   <script>window.PROFILES = {% include listAllProfiles %}</script>
   <script>window.TESTS = {% include listProfileTests profile=currentProfile %}</script>
-  <script src="/bundle.js"></script>
+  <script src="{{ baseUrl }}/bundle.js"></script>
 </body>
 </html>
