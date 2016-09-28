@@ -50,8 +50,6 @@ class App extends React.Component {
 
       return fetch(path).then(response => {
         return response.json()
-      }).catch(err => {
-        console.log('** ERR:', err)
       })
     })
 
