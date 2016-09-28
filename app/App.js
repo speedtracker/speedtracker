@@ -30,6 +30,8 @@ class App extends React.Component {
       results: null,
       tests: window.TESTS
     }
+
+    this.baseUrl = window.BASE_URL || ''
   }
 
   _fetchData(dateFrom, dateTo) {
@@ -44,7 +46,7 @@ class App extends React.Component {
       const year = test.toString().slice(0, 4)
       const month = test.toString().slice(4, 6)
 
-      const path = `/results/${this.state.profile.slug}/${year}/${month}.json`
+      const path = `${this.baseUrl}/results/${this.state.profile.slug}/${year}/${month}.json`
 
       return fetch(path).then(response => {
         return response.json()
@@ -90,7 +92,7 @@ class App extends React.Component {
 
     window.history.pushState(null, null, `/${newProfile}/?period=${this.state.period}`)
 
-    fetch('/profiles.json').then(response => {
+    fetch(`${this.baseUrl}/profiles.json`).then(response => {
       return response.json()
     }).then(profiles => {
       const profile = profiles.find(profile => profile.slug === newProfile)
