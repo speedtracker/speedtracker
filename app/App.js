@@ -61,7 +61,7 @@ class App extends React.Component {
       let results = {}
 
       resultChunks.forEach(chunk => {
-        Utils.traverseObject(resultChunks[0]._r, (obj, path) => {
+        Utils.traverseObject(chunk._r, (obj, path) => {
           obj.forEach((item, index) => {
             let ts = chunk._ts[index]
 
