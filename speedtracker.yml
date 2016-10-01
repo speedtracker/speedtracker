@@ -19,8 +19,8 @@
 #  Think of a key/password to encrypt your data. You'll need to supply this   #
 #  key with every request you make to SpeedTracker.                           #
 #                                                                             #
-#  The encrypt tool (https://speedtracker.org) allows you to encrypt any      #
-#  given text with a key of your choice. Read on.                             #
+#  The encrypt tool (https://speedtracker.org/encrypt) allows you to encrypt  #
+#  any given text with a key of your choice. Read on.                         #
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
