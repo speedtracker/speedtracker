@@ -10,19 +10,6 @@
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                             #
-#  > url                                                                      #
-#                                                                             #
-#  The full URL to your SpeedTracker website. For most people, this will be   #
-#  something like "https://yourusername.github.io/speedtracker", unless you   #
-#  want to use a custom domain.                                               #
-#                                                                             #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-url: "https://yourusername.github.io/speedtracker"
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                                             #
 #                            (!)  PLEASE NOTE:                                #
 #                                                                             #
 #  This config file will be visible to the public eye, unless you're running  #
@@ -50,7 +37,7 @@ url: "https://yourusername.github.io/speedtracker"
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-encryptionKey: "0a5f0c0670219dc049"
+encryptionKey: "YOUR_ENCRYPTED_KEY"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -63,7 +50,7 @@ encryptionKey: "0a5f0c0670219dc049"
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-wptKey: "YOUR_WEBPAGETEST_KEY"
+wptKey: "YOUR_ENCRYPTED_WEBPAGETEST_KEY"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

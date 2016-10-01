@@ -3,7 +3,7 @@
 # The human-friendly name of the profile. Whenever you're asked for the profile
 # ID, it refers to the name of the profile file — in this case, "default".
 #
-name: 'My website'
+name: "My website"
 
 #
 # The default profile will be the one shown when accessing the root URL of your
@@ -22,12 +22,10 @@ interval: 12
 # WebPageTest test parameters
 #
 parameters:
-  connectivity: 'Cable'
-  location: 'Dulles:Chrome'
-  firstViewOnly: true
+  connectivity: "Cable"
+  location: "Dulles:Chrome"
   runs: 1
   url: "https://my-website.com"
-  video: true
 
 #
 # Performance budgets are defined with a metric id, a max/min allowed value
@@ -38,13 +36,13 @@ parameters:
 #
 # https://github.com/speedtracker/speedtracker-api/blob/master/lib/SpeedTracker.js#L18-L37
 #
-budgets:
-  -
-    metric: TTFB
-    max: 600
-    alerts: ['emailAlert', 'slackAlert']
-  -
-    metric: firstPaint
-    max: 2000
-    alerts: ['slackAlert']
+#budgets:
+#  -
+#    metric: TTFB
+#    max: 600
+#    alerts: ["emailAlert", "slackAlert"]
+#  -
+#    metric: firstPaint
+#    max: 2000
+#    alerts: ["slackAlert"]
 ---
