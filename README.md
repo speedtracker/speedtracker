@@ -12,11 +12,11 @@
 1. Fork this repository into your own GitHub account or organisation.
 1. Enable GitHub Pages for the repository under *Settings* > *Options* > *GitHub Pages*. Select the branch you want to serve your site from (typically **master**).
 1. Add **speedtracker-bot** as a collaborator on your repository (under *Settings* > *Collaborators*).
-1. Use the [connect tool](/connect) to establish a connection between SpeedTracker and your repository.
+1. Use the [connect tool](https://speedtracker.org/connect) to establish a connection between SpeedTracker and your repository.
 1. Edit the main configuration file (`speedtracker.yml`).
 1. Edit `_profiles/default.html` to define your first profile.
 1. Commit and push the changed files.
-1. Use the [test tool](/test) to run a test.
+1. Use the [test tool](https://speedtracker.org/test) to run a test.
 
 ## Development
 
