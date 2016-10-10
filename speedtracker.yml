@@ -27,7 +27,7 @@
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                             #
-#  > encryptionKey                                                            #
+#  > encryptionKey                                            (!) Encrypted   #
 #                                                                             #
 #  Open the encrypt tool (https://speedtracker.org) and insert your key on    #
 #  the first input field. Leave the "What do you want to encrypt?" field      #
@@ -42,7 +42,7 @@ encryptionKey: "YOUR_ENCRYPTED_KEY"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                             #
-#  > wptKey                                                                   #
+#  > wptKey                                                   (!) Encrypted   #
 #                                                                             #
 #  Open the encrypt tool (https://speedtracker.org), insert your key on the   #
 #  first input field (e.g. foobar123) and your WebPageTest API key as the     #
@@ -51,6 +51,19 @@ encryptionKey: "YOUR_ENCRYPTED_KEY"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 wptKey: "YOUR_ENCRYPTED_WEBPAGETEST_KEY"
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  > wptUrl                                                                   #
+#                                                                             #
+#  The URL for the WebPageTest server to be used in the tests. If you're      #
+#  running a private instance, uncomment the line and insert the URL to your  #
+#  WebPageTest server. You can leave it out if you use the public instance.   #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+#wptUrl: "https://www.webpagetest.org"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
