@@ -29,9 +29,9 @@
 #                                                                             #
 #  > encryptionKey                                            (!) Encrypted   #
 #                                                                             #
-#  Open the encrypt tool (https://speedtracker.org) and insert your key on    #
-#  the first input field. Leave the "What do you want to encrypt?" field      #
-#  blank and use the result on the encryptionKey field.                       #
+#  Open the encrypt tool (https://speedtracker.org/encrypt) and insert your   #
+#  key on the first input field. Leave the "What do you want to encrypt?"     #
+#  field blank and use the result on the encryptionKey field.                 #
 #                                                                             #
 #  e.g. The key "foobar123" will generate "0a5f0c0670219dc049"                #
 #                                                                             #
@@ -44,9 +44,9 @@ encryptionKey: "YOUR_ENCRYPTED_KEY"
 #                                                                             #
 #  > wptKey                                                   (!) Encrypted   #
 #                                                                             #
-#  Open the encrypt tool (https://speedtracker.org), insert your key on the   #
-#  first input field (e.g. foobar123) and your WebPageTest API key as the     #
-#  text to encrypt. Use the result on the wptKey field.                       #
+#  Open the encrypt tool (https://speedtracker.org/encrypt), insert your key  #
+#  on the first input field (e.g. foobar123) and your WebPageTest API key as  #
+#  the text to encrypt. Use the result on the wptKey field.                   #
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
