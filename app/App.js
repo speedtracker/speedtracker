@@ -82,7 +82,7 @@ class App extends React.Component {
       period: newPeriod
     })
 
-    window.history.pushState(null, null, `?period=${newPeriod}`)
+    window.history.pushState(null, null, `?profile=${this.state.profile}&period=${newPeriod}`)
   }
 
   _changeProfile(newProfile) {
@@ -90,7 +90,7 @@ class App extends React.Component {
       loading: true
     })
 
-    window.history.pushState(null, null, `/${newProfile}/?period=${this.state.period}`)
+    window.history.pushState(null, null, `?profile=${newProfile}&period=${this.state.period}`)
 
     fetch(`${this.baseUrl}/profiles.json`).then(response => {
       return response.json()
@@ -122,10 +122,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TopBar {...this.state} 
+        <TopBar {...this.state}
                 onPeriodChange={this._changePeriod.bind(this)}
                 onProfileChange={this._changeProfile.bind(this)}/>
-        
+
         {this.state.loading ? <Loader/> : <Dashboard {...this.state}/>}
 
         <Footer/>
