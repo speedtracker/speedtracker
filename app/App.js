@@ -90,7 +90,7 @@ class App extends React.Component {
       loading: true
     })
 
-    window.history.pushState(null, null, `/${newProfile}/?period=${this.state.period}`)
+    window.history.pushState(null, null, `${this.baseUrl}/${newProfile}/?period=${this.state.period}`)
 
     fetch(`${this.baseUrl}/profiles.json`).then(response => {
       return response.json()
