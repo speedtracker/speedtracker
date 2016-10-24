@@ -63,7 +63,7 @@ wptKey: "80d4d2d0da5043e927fe3f876780bc6f2c94025d7972ef357c87676a860561be"
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-#wptUrl: "https://listen.tidal.com"
+wptUrl: "https://listen.tidal.com"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -89,6 +89,6 @@ alerts:
   slackAlert:
     type: "slack"
     hookUrl: "d9c394c6910909f32da462d52dcfac36759259117f24e6236cd3267e8c0737a9dd470bd67631ffcb304786f296731321e002561bb18253edf29331514151346f31c1bc4a7fd76a57b4d9ed4d76"
-    channel: "#web-cleint-dev"
+    channel: "#web-client-dev"
     username: "SpeedTracker"
     iconEmoji: ":grimacing:"
