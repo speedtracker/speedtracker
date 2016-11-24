@@ -1,6 +1,6 @@
 {
   "name": "speedtracker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Website performance monitoring tool",
   "main": "index.js",
   "scripts": {
