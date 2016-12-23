@@ -1,14 +1,13 @@
-import React from 'react'
-import { render } from 'react-dom'
+import { h, render, Component } from 'preact';
 
-class LogoTitle extends React.Component {
+class LogoTitle extends Component {
   render() {
     return (
       <svg className="c-LogoTitle"
-           version="1" 
-           xmlns="http://www.w3.org/2000/svg" 
-           width="872" 
-           height="153.333" 
+           version="1"
+           xmlns="http://www.w3.org/2000/svg"
+           width="872"
+           height="153.333"
            viewBox="0 0 654.000000 115.000000"
            width={this.props.width}
            height={this.props.width * (24 / 140)}>

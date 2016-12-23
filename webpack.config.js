@@ -20,7 +20,8 @@ let config = {
         exclude: /node_modules/,
         test: /\.js$/,
         query: {
-          presets: ['es2015', 'es2016', 'react']
+          presets: ['es2015', 'es2016'],
+          plugins: [['transform-react-jsx', { 'pragma': 'h' }]]
         }
       }
     ]

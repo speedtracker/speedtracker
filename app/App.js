@@ -1,5 +1,4 @@
-import React from 'react'
-import { render } from 'react-dom'
+import { h, render, Component } from 'preact';
 
 import Constants from './Constants'
 import Dashboard from './Dashboard'
@@ -13,7 +12,7 @@ const parseUrl = require('query-string').parse
 
 require('es6-promise').polyfill()
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props)
 
@@ -122,16 +121,16 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TopBar {...this.state} 
+        <TopBar {...this.state}
                 onPeriodChange={this._changePeriod.bind(this)}
-                onProfileChange={this._changeProfile.bind(this)}/>
-        
-        {this.state.loading ? <Loader/> : <Dashboard {...this.state}/>}
+                onProfileChange={this._changeProfile.bind(this)} />
 
-        <Footer/>
+        {this.state.loading ? <Loader /> : <Dashboard {...this.state} />}
+
+        <Footer />
       </div>
     )
   }
 }
 
-render(<App/>, document.getElementById('root'))
+render(<App />, document.getElementById('root'))

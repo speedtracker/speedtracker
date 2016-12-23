@@ -1,7 +1,4 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { leftPad } from './Utils'
-
+import { h, render, Component } from 'preact';
 import ChartJS from 'chart.js'
 
 import Constants from './Constants'
@@ -9,10 +6,10 @@ import * as Utils from './Utils'
 
 const objectPath = require('object-path')
 
-class Chart extends React.Component {
+class Chart extends Component {
   _initChart() {
     const profile = this.props.profile
-    
+
     const dates = Utils.getDateRangeForPeriod(this.props.period)
     const dateFrom = dates.from.getTime()
     const dateTo = dates.to.getTime()
@@ -31,7 +28,7 @@ class Chart extends React.Component {
 
     this.props.metrics.forEach(metricPath => {
       let metric = objectPath.get(Constants.metrics, metricPath)
-      
+
       const values = timestamps.map(timestamp => {
         let value = objectPath.get(this.props.results[timestamp], metricPath)
 
@@ -75,7 +72,7 @@ class Chart extends React.Component {
             if (typeof metric.transform === 'function') {
               value = metric.transform(value)
             }
-            
+
             const yValue = chart.scales['y-axis-0'].getPixelForValue(value)
 
             ctx.save()
@@ -150,7 +147,7 @@ class Chart extends React.Component {
 
   render() {
     const placeholderClass = (Object.keys(this.props.results) < 2) ? ' c-Chart--placeholder' : ''
-    
+
     return (
       <div className={`c-Chart${placeholderClass}`}>
         <canvas id={`chart${this.props.id}`} width="400" height="250"></canvas>
