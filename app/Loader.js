@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component } from 'preact'
 
 import Logo from './Logo'
 

@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component } from 'preact'
 
 import Chart from './Chart'
 import Info from './Info'

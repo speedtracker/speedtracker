@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component } from 'preact'
 
 class LogoTitle extends Component {
   render() {

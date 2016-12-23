@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, render, Component } from 'preact'
 import ChartJS from 'chart.js'
 
 import Constants from './Constants'
