@@ -25,18 +25,18 @@ $im-columns-class: '.col' !default;
       }
     }
   }
-  
+
   @each $breakpoint in $breakpoints {
     $breakpoint-name: nth($breakpoint, 1);
-    
-    @include media(#{'>=' + $breakpoint-name}) {
+
+    @include media(unquote("#{">=" + $breakpoint-name}")) {
       @each $i in $columns {
         @for $n from 1 through $i {
           #{$im-columns-class}--#{$n}-#{$i}\@#{$breakpoint-name} {
             width: ($n / $i) * 100%;
           }
         }
-      }         
+      }
     }
   }
 }
