@@ -2,9 +2,7 @@ import { h, render, Component } from 'preact'
 
 class Info extends Component {
   static get defaultProps() {
-    return {
-      position: 'up'
-    }
+    return { position: 'up' }
   }
 
   render() {

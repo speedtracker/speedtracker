@@ -1,21 +1,17 @@
 import { h, render, Component } from 'preact'
 import ChartJS from 'chart.js'
+import objectPath from 'object-path'
 
 import Constants from './Constants'
 import * as Utils from './Utils'
 
-const objectPath = require('object-path')
-
 class Chart extends Component {
   _initChart() {
-    const profile = this.props.profile
-
     const dates = Utils.getDateRangeForPeriod(this.props.period)
     const dateFrom = dates.from.getTime()
     const dateTo = dates.to.getTime()
 
     let timestamps = []
-
     Object.keys(this.props.results).forEach(timestamp => {
       const timestampMillis = timestamp * 1000
 
@@ -25,18 +21,13 @@ class Chart extends Component {
     })
 
     let datasets = []
-
     this.props.metrics.forEach(metricPath => {
-      let metric = objectPath.get(Constants.metrics, metricPath)
+      const metric = objectPath.get(Constants.metrics, metricPath)
 
       const values = timestamps.map(timestamp => {
-        let value = objectPath.get(this.props.results[timestamp], metricPath)
+        const value = objectPath.get(this.props.results[timestamp], metricPath)
 
-        if (typeof metric.transform === 'function') {
-          value = metric.transform(value)
-        }
-
-        return value
+        return typeof metric.transform === 'function' ? metric.transform(value) : value
       })
 
       datasets.push({
@@ -52,14 +43,14 @@ class Chart extends Component {
       })
     })
 
-    let lineChart = ChartJS.controllers.line.prototype.draw
+    const lineChart = ChartJS.controllers.line.prototype.draw
 
     ChartJS.helpers.extend(ChartJS.controllers.line.prototype, {
       draw: function() {
         lineChart.apply(this, arguments)
 
         const chart = this.chart
-        let ctx = chart.chart.ctx
+        const ctx = chart.chart.ctx
 
         const lineStart = chart.scales['x-axis-0'].left
         const lineEnd = lineStart + chart.scales['x-axis-0'].width
@@ -81,7 +72,6 @@ class Chart extends Component {
             ctx.strokeStyle = '#ff0000'
             ctx.lineTo(lineEnd, yValue)
             ctx.stroke()
-
             ctx.restore()
           }
         })
@@ -89,7 +79,6 @@ class Chart extends Component {
     })
 
     const labels = timestamps.map(timestamp => timestamp * 1000)
-
     const target = document.getElementById(`chart${this.props.id}`);
     const chart = new ChartJS(target, {
       type: 'line',
@@ -103,19 +92,13 @@ class Chart extends Component {
           xAxes: [{
             type: 'time',
             time: {
-              displayFormats: {
-                unit: 'month'
-              },
+              displayFormats: { unit: 'month' },
               min: labels[0],
               max: labels[labels.length - 1]
-              // min: dates.from.getTime(),
-              // max: dates.to.getTime()
             }
           }],
           yAxes: [{
-            ticks: {
-              beginAtZero: true
-            },
+            ticks: { beginAtZero: true },
             scaleLabel: {
               display: (this.props.yLabel !== undefined),
               labelString: this.props.yLabel || ''
@@ -124,12 +107,11 @@ class Chart extends Component {
         },
         tooltips: {
           enabled: true,
-          mode: 'label',
+          mode: 'index',
+          caretSize: 0,
           callbacks: {
-            title: function (tooltipItems, data) {
-              const date = new Date(tooltipItems[0].xLabel)
-
-              return date.toISOString()
+            title: (tooltipItems, data) => {
+              return new Date(tooltipItems[0].xLabel).toISOString()
             }
           }
         }

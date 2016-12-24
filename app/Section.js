@@ -1,14 +1,15 @@
 import { h, render, Component } from 'preact'
+import objectPath from 'object-path'
 
 import Chart from './Chart'
 import Info from './Info'
 import Constants from './Constants'
 
-const objectPath = require('object-path')
-
 class Section extends Component {
   render() {
-    let budgets = (this.props.profile.budgets || []).filter(budget => (this.props.metrics.indexOf(budget.metric) !== -1))
+    const budgets = (this.props.profile.budgets || []).filter(budget => {
+      return this.props.metrics.indexOf(budget.metric) !== -1
+    })
 
     return (
       <div className="c-Section">
@@ -16,10 +17,12 @@ class Section extends Component {
 
         <div className="c-Section__indicators">
           {this.props.metrics.map((metricPath, index) => {
-            let metric = objectPath.get(Constants.metrics, metricPath)
+            const metric = objectPath.get(Constants.metrics, metricPath)
             let value = objectPath.get(this.props.lastResult, metricPath)
 
-            if (typeof value !== 'undefined') {
+            if (typeof value === 'undefined') {
+              value = '—'
+            } else {
               if (typeof metric.transform === 'function') {
                 value = metric.transform(value)
               }
@@ -27,11 +30,9 @@ class Section extends Component {
               if (metric.unit) {
                 value += metric.unit
               }
-            } else {
-              value = '—'
             }
 
-            let info = metric.description ? <Info text={metric.description} /> : null
+            const info = metric.description ? <Info text={metric.description} /> : null
 
             return (
               <dl key={index} className="c-Indicator">
@@ -57,12 +58,10 @@ class Section extends Component {
               budgetValue = metric.transform(budgetValue)
             }
 
-            if (typeof budgetValue !== 'undefined') {
-              if (metric.unit) {
-                budgetValue += metric.unit
-              }
-            } else {
+            if (typeof budgetValue === 'undefined') {
               budgetValue = '—'
+            } else if (metric.unit) {
+              budgetValue += metric.unit
             }
 
             return (

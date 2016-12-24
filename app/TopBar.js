@@ -17,8 +17,8 @@ class TopBar extends Component {
       <div className="c-TopBar">
         <div className="c-TopBar__inner">
           <a href="https://speedtracker.org">
-            <Logo width={40}/>
-            <LogoTitle width={140}/>
+            <Logo width={40} />
+            <LogoTitle width={140} />
           </a>
           <div className="c-TopBar__nav">
             <p>
@@ -28,7 +28,9 @@ class TopBar extends Component {
                       onChange={this._onProfileChange.bind(this)}>
                 {this.props.profiles.map(profile => {
                   return (
-                    <option key={profile.slug} value={profile.slug}>{profile.name}</option>
+                    <option key={profile.slug} value={profile.slug}>
+                      {profile.name}
+                    </option>
                   )
                 })}
               </select> in the last
