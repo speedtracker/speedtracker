@@ -19,6 +19,7 @@
 1. Edit `_profiles/default.html` to define your first profile.
 1. Commit and push the changed files.
 1. Use the [test tool](https://speedtracker.org/test) to run a test.
+1. Tracking [scottgruber.me](https://scottgruber.github.io/speedtracker/) online.
 
 ## Development
 
