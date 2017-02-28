@@ -23,9 +23,9 @@ interval: 12
 #
 parameters:
   connectivity: "Cable"
-  location: "Dulles:Chrome"
+  location: "ec2-eu-west-1:Chrome"
   runs: 1
-  url: "http://direct.asda.com/george/clothing/10,default,sc.html"
+  url: "http://direct.asda.com/Wine/AD12,default,sc.html"
 
 #
 # Performance budgets are defined with a metric id, a max/min allowed value
