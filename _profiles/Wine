@@ -23,7 +23,7 @@ interval: 12
 #
 parameters:
   connectivity: "Cable"
-  location: "ec2-eu-west-1:Chrome"
+  location: "Dulles:Chrome"
   runs: 1
   url: "http://direct.asda.com/Wine/AD12,default,sc.html"
 
