@@ -79,7 +79,7 @@ wptKey: "2b0d1be2099de4438c901ffe20a42bcaf37c95df46583d2b3dcc9ed451b20acfc439"
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-#alerts:
+alerts:
   emailAlert:
     type: "email"
     recipients: ["184c1db80f82fa4bdd9014b976f877ebf92d96ce17136877659993c547b45dc6"]
