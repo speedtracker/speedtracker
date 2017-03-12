@@ -42,7 +42,23 @@ budgets:
     max: 600
     alerts: ["emailAlert"]
   -
+    metric: loadTime
+    max: 20000
+    alerts: ["emailAlert"]
+  -
+    metric: fullyLoaded
+    max: 40000
+    alerts: ["emailAlert"]
+  -
     metric: visualComplete
     max: 10000
+    alerts: ["emailAlert"]
+  -
+    metric: render
+    max: 2000
+    alerts: ["emailAlert"]
+  -
+    metric: SpeedIndex
+    max: 4000
     alerts: ["emailAlert"]
 ---
