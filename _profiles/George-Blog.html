@@ -61,4 +61,12 @@ budgets:
     metric: SpeedIndex
     max: 4000
     alerts: ["emailAlert"]
+  -
+    metric: breakdown.image.bytes
+    max: 10000
+    alerts: ["emailAlert"]
+-
+    metric: breakdown.image.requests
+    max: 42
+    alerts: ["emailAlert"]
 ---
