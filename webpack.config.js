@@ -14,12 +14,12 @@ let config = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        loader: 'babel',
-        exclude: /node_modules/,
         test: /\.js$/,
-        query: {
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
           presets: ['es2015', 'es2016'],
           plugins: [['transform-react-jsx', { 'pragma': 'h' }]]
         }
