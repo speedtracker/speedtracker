@@ -12,6 +12,8 @@ class Dashboard extends React.Component {
     const lastTs = timestamps[timestamps.length - 1]
     const lastResult = results[lastTs]
     const videoFrames = (lastResult && lastResult.videoFrames) || []
+    const wptUrl = this.props.profile.wptUrl
+    const wptUrlIsDecrypted = !wptUrl || wptUrl.indexOf('http') === 0
 
     return (
       <div className="u-wrapper">
@@ -59,7 +61,7 @@ class Dashboard extends React.Component {
                  title="Content breakdown (requests)"
                  yLabel="Requests"/>
         
-        {videoFrames.length ? 
+        {videoFrames.length && wptUrlIsDecrypted &&
           <div className="c-Section">
             <h3 className="c-Section__title">Latest filmstrip view</h3>
             <div className="c-Filmstrip">
@@ -69,12 +71,12 @@ class Dashboard extends React.Component {
                 return (
                   <div key={index} className="c-Filmstrip__item">
                     <p className="c-Filmstrip__progress">{progress} ({frame._vc}%)</p>
-                    <img className="c-Filmstrip__image" src={Utils.getVideoFrameURL(lastResult.id, frame._t)}/>
+                    <img className="c-Filmstrip__image" src={Utils.getVideoFrameURL(wptUrl, lastResult.id, frame._t)}/>
                   </div>
                 )
               })}
             </div>
-          </div> : null}
+          </div>}
       </div>
     )
   }
