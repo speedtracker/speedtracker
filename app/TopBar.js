@@ -1,10 +1,9 @@
-import React from 'react'
-import { render } from 'react-dom'
+import { h, render, Component } from 'preact'
 
 import Logo from './Logo'
 import LogoTitle from './LogoTitle'
 
-class TopBar extends React.Component {
+class TopBar extends Component {
   _onPeriodChange(event) {
     this.props.onPeriodChange(event.target.value)
   }
@@ -18,22 +17,24 @@ class TopBar extends React.Component {
       <div className="c-TopBar">
         <div className="c-TopBar__inner">
           <a href="https://speedtracker.org">
-            <Logo width={40}/>
-            <LogoTitle width={140}/>
+            <Logo width={40} />
+            <LogoTitle width={140} />
           </a>
           <div className="c-TopBar__nav">
             <p>
-              Viewing 
+              Viewing
               <select className="c-TopBar__select"
                       value={this.props.profile.slug}
                       onChange={this._onProfileChange.bind(this)}>
                 {this.props.profiles.map(profile => {
                   return (
-                    <option key={profile.slug} value={profile.slug}>{profile.name}</option>
+                    <option key={profile.slug} value={profile.slug}>
+                      {profile.name}
+                    </option>
                   )
                 })}
-              </select> in the last 
-              <select className="c-TopBar__select" 
+              </select> in the last
+              <select className="c-TopBar__select"
                       value={this.props.period}
                       onChange={this._onPeriodChange.bind(this)}>
                 <option value="day">day</option>
