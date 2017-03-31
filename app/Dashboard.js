@@ -15,7 +15,6 @@ class Dashboard extends React.Component {
     const wptUrl = this.props.profile.wptUrl
       ? (this.props.profile.wptUrl.indexOf('http') === 0 ? this.props.profile.wptUrl : null)
       : 'https://www.webpagetest.org'
-    const wptUrlIsDecrypted = !wptUrl || wptUrl.indexOf('http') === 0
 
     return (
       <div className="u-wrapper">
@@ -75,7 +74,7 @@ class Dashboard extends React.Component {
                  yLabel="Requests"
                  wptUrl={wptUrl}/>
         
-        {videoFrames.length && wptUrlIsDecrypted &&
+        {videoFrames.length && wptUrl &&
           <div className="c-Section">
             <h3 className="c-Section__title">Latest filmstrip view</h3>
             <div className="c-Filmstrip">
