@@ -16,10 +16,12 @@ class Chart extends React.Component {
     const dates = Utils.getDateRangeForPeriod(this.props.period)
     const dateFrom = dates.from.getTime()
     const dateTo = dates.to.getTime()
+    const results = this.props.results
+    const wptUrl = this.props.wptUrl
 
     let timestamps = []
 
-    Object.keys(this.props.results).forEach(timestamp => {
+    Object.keys(results).forEach(timestamp => {
       const timestampMillis = timestamp * 1000
 
       if ((timestampMillis >= dateFrom) && (timestampMillis <= dateTo)) {
@@ -33,7 +35,7 @@ class Chart extends React.Component {
       let metric = objectPath.get(Constants.metrics, metricPath)
       
       const values = timestamps.map(timestamp => {
-        let value = objectPath.get(this.props.results[timestamp], metricPath)
+        let value = objectPath.get(results[timestamp], metricPath)
 
         if (typeof metric.transform === 'function') {
           value = metric.transform(value)
@@ -49,7 +51,7 @@ class Chart extends React.Component {
         data: values,
         label: metric.name,
         lineTension: 0.6,
-        pointHoverRadius: 5,
+        pointHoverRadius: 10,
         pointHitRadius: 10,
         pointRadius: 5
       })
@@ -102,6 +104,16 @@ class Chart extends React.Component {
         budgets: this.props.budgets
       },
       options: {
+        onClick: function (event, data) {
+          if (!data.length || !wptUrl) return
+
+          const index = data[0]._index
+          const timestamp = timestamps[index]
+          const result = results[timestamp]
+          const testUrl = `${wptUrl}/result/${result.id}/`
+
+          window.open(testUrl, '_blank')
+        },
         scales: {
           xAxes: [{
             type: 'time',
@@ -111,13 +123,12 @@ class Chart extends React.Component {
               },
               min: labels[0],
               max: labels[labels.length - 1]
-              // min: dates.from.getTime(),
-              // max: dates.to.getTime()
             }
           }],
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              max: this.props.maxValue
             },
             scaleLabel: {
               display: (this.props.yLabel !== undefined),
@@ -131,10 +142,17 @@ class Chart extends React.Component {
           callbacks: {
             title: function (tooltipItems, data) {
               const date = new Date(tooltipItems[0].xLabel)
+              const year = date.getFullYear()
+              const month = date.getMonth() + 1
+              const day = date.getDate()
+              const hours = date.getHours()
+              const minutes = date.getMinutes()
+              const seconds = date.getSeconds()
 
-              return date.toISOString()
+              return `${day}/${month}/${year} @ ${hours}:${minutes}:${seconds}`
             }
-          }
+          },
+          position: 'nearest'
         }
       }
     })

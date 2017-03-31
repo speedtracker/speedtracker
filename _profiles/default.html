@@ -31,6 +31,14 @@ parameters:
   url: "https://my-website.com"
 
 #
+# The URL of the WebPageTest instance to be used with this profile. Please note that
+# if you decide to encrypt this URL, the filmstrip section will not be displayed.
+#
+# If you leave this field out, the public instance of WebPageTest will be used.
+#
+#wptUrl: https://www.webpagetest.org
+
+#
 # Performance budgets are defined with a metric id, a max/min allowed value
 # (in milliseconds), and one or multiple alerts — referenced by the ids defined
 # in the main config — to be triggered when a budget is overrun.
@@ -42,7 +50,7 @@ parameters:
 #budgets:
 #  -
 #    metric: TTFB
-#    max: 600
+#    max: 1000
 #    alerts: ["emailAlert", "slackAlert"]
 #  -
 #    metric: firstPaint
