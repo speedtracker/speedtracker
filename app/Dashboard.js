@@ -13,6 +13,8 @@ class Dashboard extends React.Component {
     const lastResult = results[lastTs]
     const videoFrames = (lastResult && lastResult.videoFrames) || []
     const wptUrl = this.props.profile.wptUrl
+      ? (this.props.profile.wptUrl.indexOf('http') === 0 ? this.props.profile.wptUrl : null)
+      : 'https://www.webpagetest.org'
     const wptUrlIsDecrypted = !wptUrl || wptUrl.indexOf('http') === 0
 
     return (
@@ -22,14 +24,24 @@ class Dashboard extends React.Component {
                  lastResult={lastResult}
                  metrics={['TTFB', 'loadTime', 'fullyLoaded']}
                  title="Load times"
-                 yLabel="Time (seconds)"/>
+                 yLabel="Time (seconds)"
+                 wptUrl={wptUrl}/>
 
         <Section {...this.props}
                  id="rendering"
                  lastResult={lastResult}
                  metrics={['firstPaint', 'SpeedIndex', 'visualComplete']}
                  title="Rendering"
-                 yLabel="Time (seconds)"/>
+                 yLabel="Time (seconds)"
+                 wptUrl={wptUrl}/>
+
+        <Section {...this.props}
+                 id="pagespeed"
+                 lastResult={lastResult}
+                 maxValue={100}
+                 metrics={['pagespeed']}
+                 title="Google PageSpeed"
+                 yLabel="Score"/>
 
         <Section {...this.props}
                  id="contentBreakdownBytes"
@@ -44,7 +56,8 @@ class Dashboard extends React.Component {
                   'breakdown.other.bytes'
                  ]}
                  title="Content breakdown (size)"
-                 yLabel="Traffic (kilobytes)"/>
+                 yLabel="Traffic (kilobytes)"
+                 wptUrl={wptUrl}/>
 
         <Section {...this.props}
                  id="contentBreakdownRequests"
@@ -59,7 +72,8 @@ class Dashboard extends React.Component {
                   'breakdown.other.requests'
                  ]}
                  title="Content breakdown (requests)"
-                 yLabel="Requests"/>
+                 yLabel="Requests"
+                 wptUrl={wptUrl}/>
         
         {videoFrames.length && wptUrlIsDecrypted &&
           <div className="c-Section">

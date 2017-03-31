@@ -127,6 +127,12 @@ export default {
       transform: (value) => (value / 1000).toFixed(2),
       unit: 's',
       description: 'The time it takes for the page to be fully visually populated'
+    },
+    pagespeed: {
+      color: [51, 103, 214],
+      name: 'PageSpeed score',
+      unit: '',
+      description: 'A custom metric defined by Google PageSpeed Insights'
     }
   },
 
