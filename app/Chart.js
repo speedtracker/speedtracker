@@ -104,16 +104,7 @@ class Chart extends React.Component {
         budgets: this.props.budgets
       },
       options: {
-        onClick: function (event, data) {
-          if (!data.length || !wptUrl) return
-
-          const index = data[0]._index
-          const timestamp = timestamps[index]
-          const result = results[timestamp]
-          const testUrl = `${wptUrl}/result/${result.id}/`
-
-          window.open(testUrl, '_blank')
-        },
+        onClick: this.props.onClick,
         scales: {
           xAxes: [{
             type: 'time',
@@ -168,10 +159,14 @@ class Chart extends React.Component {
 
   render() {
     const placeholderClass = (Object.keys(this.props.results) < 2) ? ' c-Chart--placeholder' : ''
-    
+ 
     return (
       <div className={`c-Chart${placeholderClass}`}>
         <canvas id={`chart${this.props.id}`} width="400" height="250"></canvas>
+
+        {this.props.onClickDescription &&
+          <p className="c-Chart__footer">{this.props.onClickDescription}</p>
+        }
       </div>
     )
   }
