@@ -164,8 +164,8 @@ class Chart extends React.Component {
       <div className={`c-Chart${placeholderClass}`}>
         <canvas id={`chart${this.props.id}`} width="400" height="250"></canvas>
 
-        {this.props.onClickDescription &&
-          <p className="c-Chart__footer">{this.props.onClickDescription}</p>
+        {this.props.footNote &&
+          <p className="c-Chart__footer">{this.props.footNote}</p>
         }
       </div>
     )
