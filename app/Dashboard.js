@@ -18,10 +18,18 @@ class Dashboard extends React.Component {
     const profileUrl = this.props.profile.parameters.url
 
     const onClickPagespeed = function (event, data) {
+      const index = data[0]._index
+      const timestamp = timestamps[index]
+      const result = results[timestamp]
       const encodedUrl = encodeURIComponent(profileUrl)
       const insightsUrl = `https://developers.google.com/speed/pagespeed/insights/?url=${encodedUrl}`
+      const lighthouseUrl = `https://www.webpagetest.org/lighthouse.php?test=${result.id}`
 
-      window.open(insightsUrl, '_blank')
+      if (event.shiftKey) {
+        window.open(lighthouseUrl, '_blank')
+      } else {
+        window.open(insightsUrl, '_blank')
+      }
     }
 
     const onClickWpt = function (event, data) {
@@ -39,19 +47,23 @@ class Dashboard extends React.Component {
       <div className="u-wrapper">
         <Section {...this.props}
           id="loadTimes"
+          footNote={(
+            <span>Click on a data point to see the corresponding WebPageTest result</span>
+          )}
           lastResult={lastResult}
           metrics={['TTFB', 'loadTime', 'fullyLoaded']}
           onClick={onClickWpt}
-          onClickDescription="Click on a data point to see the corresponding WebPageTest result"
           title="Load times"
           yLabel="Time (seconds)"
         />
 
         <Section {...this.props}
           id="rendering"
+          footNote={(
+            <span>Click on a data point to see the corresponding WebPageTest result</span>
+          )}
           lastResult={lastResult}
           onClick={onClickWpt}
-          onClickDescription="Click on a data point to see the WebPageTest result"
           metrics={['firstPaint', 'SpeedIndex', 'visualComplete']}
           title="Rendering"
           yLabel="Time (seconds)"
@@ -59,20 +71,24 @@ class Dashboard extends React.Component {
 
         <Section {...this.props}
           id="pagespeed"
+          footNote={(
+            <span>Click on a data point to see the Google PageSpeed report. Shift+Click to see the Lighthouse report.<br/>Not all WebPageTest locations support Lighthouse - <a href="https://speedtracker.org/blog/using-lighthouse">click here</a> to learn more.</span>
+          )}
           lastResult={lastResult}
           maxValue={100}
-          metrics={['pagespeed']}
+          metrics={['pagespeed', 'lighthouse']}
           onClick={onClickPagespeed}
-          onClickDescription="Click on a data point to see the Google PageSpeed Insights report"
-          title="Google PageSpeed"
-          yLabel="Score"
+          title="Google PageSpeed and Lighthouse"
+          yLabel="Score (0-100)"
         />
 
         <Section {...this.props}
           id="contentBreakdownBytes"
+          footNote={(
+            <span>Click on a data point to see the corresponding WebPageTest result</span>
+          )}
           lastResult={lastResult}
           onClick={onClickWpt}
-          onClickDescription="Click on a data point to see the WebPageTest result"
           metrics={[
             'breakdown.html.bytes',
             'breakdown.js.bytes',
@@ -88,9 +104,11 @@ class Dashboard extends React.Component {
 
         <Section {...this.props}
           id="contentBreakdownRequests"
+          footNote={(
+            <span>Click on a data point to see the corresponding WebPageTest result</span>
+          )}
           lastResult={lastResult}
           onClick={onClickWpt}
-          onClickDescription="Click on a data point to see the WebPageTest result"
           metrics={[
             'breakdown.html.requests',
             'breakdown.js.requests',

@@ -133,6 +133,12 @@ export default {
       name: 'PageSpeed score',
       unit: '',
       description: 'A custom metric defined by Google PageSpeed Insights'
+    },
+    lighthouse: {
+      color: [121, 180, 115],
+      name: 'Lighthouse PWA score',
+      unit: '',
+      description: 'A Progressive Web App (PWA) score defined by Google Lighthouse'
     }
   },
 
