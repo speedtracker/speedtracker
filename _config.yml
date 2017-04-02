@@ -2,7 +2,7 @@ detach:  false
 port:    4820
 host:    0.0.0.0
 
-version: 1.2.0
+version: 1.2.1
 
 exclude:
   - app
