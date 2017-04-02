@@ -132,7 +132,7 @@ class Dashboard extends React.Component {
                 return (
                   <div key={index} className="c-Filmstrip__item">
                     <p className="c-Filmstrip__progress">{progress} ({frame._vc}%)</p>
-                    <img className="c-Filmstrip__image" src={Utils.getVideoFrameURL(wptUrl, lastResult.id, frame._t)}/>
+                    <img className="c-Filmstrip__image" src={Utils.getVideoFrameURL(wptUrl, lastResult.id, frame)}/>
                   </div>
                 )
               })}
