@@ -14,7 +14,7 @@ layout: null
 <head>
   {% include meta.html %}
 
-  <link rel="stylesheet" type="text/css" href="{{ baseUrl }}/css/main.css">
+  <link rel="stylesheet" type="text/css" href="{{ baseUrl }}/css/main.css?v={{ site.version }}">
 </head>
 <body>
   <div id="root"></div>
@@ -24,6 +24,6 @@ layout: null
   <script>window.BASE_URL = {{ baseUrl | jsonify }}</script>
   <script>window.PROFILES = {% include listAllProfiles %}</script>
   <script>window.TESTS = {% include listProfileTests profile=currentProfile %}</script>
-  <script src="{{ baseUrl }}/bundle.js"></script>
+  <script src="{{ baseUrl }}/bundle.js?v={{ site.version }}"></script>
 </body>
 </html>

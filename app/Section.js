@@ -32,12 +32,13 @@ class Section extends React.Component {
               value = '—'
             }
 
-            let info = metric.description ? <Info text={metric.description}/> : null
+            const info = metric.description ? <Info text={metric.description}/> : null
+            const displayValue = value !== null ? value : '—'
 
             return (
               <dl key={index} className="c-Indicator">
                 <dt className="c-Indicator__key">{metric.name}{info}</dt>
-                <dd className="c-Indicator__value">{value}</dd>
+                <dd className="c-Indicator__value">{displayValue}</dd>
               </dl> 
             )
           })}

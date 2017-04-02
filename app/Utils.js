@@ -38,11 +38,12 @@ const getDateRangeForPeriod = (period) => {
   }
 }
 
-const getVideoFrameURL = (baseURL, id, time) => {
+const getVideoFrameURL = (baseURL, id, frame) => {
   baseURL = baseURL || 'https://www.webpagetest.org'
-  let frame = leftPad(time / 100, 4)
+  
+  const filename = frame._i || `frame_${leftPad(frame._t / 100, 4)}.jpg`
 
-  return `${baseURL}/getfile.php?test=${id}&video=video_1&file=frame_${frame}.jpg`
+  return `${baseURL}/getfile.php?test=${id}&video=video_1&file=${filename}`
 }
 
 const leftPad = (input, length, pad) => {
