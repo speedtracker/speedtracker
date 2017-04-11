@@ -1,4 +1,4 @@
 ---
 layout: null
 ---
-{% assign profiles = '' | split: '' %}{% for profile in site.profiles %}{% capture profileData %}{"slug":{{ profile.slug | jsonify }},"name":{{ profile.name | jsonify }},"budgets":{{ profile.budgets | jsonify }},"tests":{% include listProfileTests profile=profile.slug %},"wptUrl":{{ profile.wptUrl | jsonify }}}{% endcapture %}{% assign profiles = profiles | push: profileData %}{% endfor %}[{{ profiles | join: ',' }}]
+{% assign profiles = '' | split: '' %}{% for profile in site.profiles %}{% capture profileData %}{"slug":{{ profile.slug | jsonify }},"name":{{ profile.name | jsonify }},"budgets":{{ profile.budgets | jsonify }},"tests":{% include listProfileTests profile=profile.slug %},"wptUrl":{{ profile.wptUrl | jsonify }},"parameters":{{ profile.parameters | jsonify }}}{% endcapture %}{% assign profiles = profiles | push: profileData %}{% endfor %}[{{ profiles | join: ',' }}]
