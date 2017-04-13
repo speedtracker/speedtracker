@@ -1,6 +1,5 @@
 'use strict'
 
-const path = require('path')
 const webpack = require('webpack')
 
 let config = {
@@ -30,12 +29,12 @@ let config = {
 if (process.env.NODE_ENV === 'production') {
   config.plugins = [
     new webpack.DefinePlugin({
-      'process.env':{
+      'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compress:{
+      compress: {
         warnings: true
       }
     })

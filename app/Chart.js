@@ -1,6 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { leftPad } from './Utils'
+import { render } from 'react-dom' // eslint-disable-line no-unused-vars
 
 import ChartJS from 'chart.js'
 
@@ -10,14 +9,11 @@ import * as Utils from './Utils'
 const objectPath = require('object-path')
 
 class Chart extends React.Component {
-  _initChart() {
-    const profile = this.props.profile
-    
+  _initChart () {
     const dates = Utils.getDateRangeForPeriod(this.props.period)
     const dateFrom = dates.from.getTime()
     const dateTo = dates.to.getTime()
     const results = this.props.results
-    const wptUrl = this.props.wptUrl
 
     let timestamps = []
 
@@ -33,7 +29,7 @@ class Chart extends React.Component {
 
     this.props.metrics.forEach(metricPath => {
       let metric = objectPath.get(Constants.metrics, metricPath)
-      
+
       const values = timestamps.map(timestamp => {
         let value = objectPath.get(results[timestamp], metricPath)
 
@@ -60,7 +56,7 @@ class Chart extends React.Component {
     let lineChart = ChartJS.controllers.line.prototype.draw
 
     ChartJS.helpers.extend(ChartJS.controllers.line.prototype, {
-      draw: function() {
+      draw: function () {
         lineChart.apply(this, arguments)
 
         const chart = this.chart
@@ -77,7 +73,7 @@ class Chart extends React.Component {
             if (typeof metric.transform === 'function') {
               value = metric.transform(value)
             }
-            
+
             const yValue = chart.scales['y-axis-0'].getPixelForValue(value)
 
             ctx.save()
@@ -94,9 +90,10 @@ class Chart extends React.Component {
     })
 
     const labels = timestamps.map(timestamp => timestamp * 1000)
+    const target = document.getElementById(`chart${this.props.id}`)
 
-    const target = document.getElementById(`chart${this.props.id}`);
-    const chart = new ChartJS(target, {
+    /* eslint-disable no-new */
+    new ChartJS(target, {
       type: 'line',
       data: {
         labels,
@@ -147,25 +144,26 @@ class Chart extends React.Component {
         }
       }
     })
+    /* eslint-enable no-new */
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this._initChart()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     this._initChart()
   }
 
-  render() {
+  render () {
     const placeholderClass = (Object.keys(this.props.results) < 2) ? ' c-Chart--placeholder' : ''
- 
+
     return (
       <div className={`c-Chart${placeholderClass}`}>
-        <canvas id={`chart${this.props.id}`} width="400" height="250"></canvas>
+        <canvas id={`chart${this.props.id}`} width='400' height='250' />
 
         {this.props.footNote &&
-          <p className="c-Chart__footer">{this.props.footNote}</p>
+          <p className='c-Chart__footer'>{this.props.footNote}</p>
         }
       </div>
     )
