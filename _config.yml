@@ -4,6 +4,8 @@ host:    0.0.0.0
 
 version: 1.2.1
 
+google_analytics_key: ""
+
 exclude:
   - app
   - node_modules
