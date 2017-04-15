@@ -8,6 +8,8 @@
 
 ---
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
+
 ## Installation
 
 1. [Click here](https://www.webpagetest.org/getkey.php) to request a WebPageTest API key.
@@ -27,13 +29,13 @@
   ```
   npm install
   ```
-  
+
 1. Start the Jekyll server
 
   ```
   jekyll serve --watch --port SOME_PORT
   ```
-  
+
 1. Start Webpack
 
   ```
@@ -45,7 +47,7 @@
   ```
   npm run build
   ```
-  
+
 ---
 
 ## License

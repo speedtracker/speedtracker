@@ -1,12 +1,11 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { render } from 'react-dom' // eslint-disable-line no-unused-vars
 
-import Constants from './Constants'
 import Section from './Section'
 import * as Utils from './Utils'
 
 class Dashboard extends React.Component {
-  render() {
+  render () {
     const results = this.props.results
     const timestamps = Object.keys(results)
     const lastTs = timestamps[timestamps.length - 1]
@@ -44,46 +43,46 @@ class Dashboard extends React.Component {
     }
 
     return (
-      <div className="u-wrapper">
+      <div className='u-wrapper'>
         <Section {...this.props}
-          id="loadTimes"
+          id='loadTimes'
           footNote={(
             <span>Click on a data point to see the corresponding WebPageTest result</span>
           )}
           lastResult={lastResult}
           metrics={['TTFB', 'loadTime', 'fullyLoaded']}
           onClick={onClickWpt}
-          title="Load times"
-          yLabel="Time (seconds)"
+          title='Load times'
+          yLabel='Time (seconds)'
         />
 
         <Section {...this.props}
-          id="rendering"
+          id='rendering'
           footNote={(
             <span>Click on a data point to see the corresponding WebPageTest result</span>
           )}
           lastResult={lastResult}
           onClick={onClickWpt}
           metrics={['firstPaint', 'SpeedIndex', 'visualComplete']}
-          title="Rendering"
-          yLabel="Time (seconds)"
+          title='Rendering'
+          yLabel='Time (seconds)'
         />
 
         <Section {...this.props}
-          id="pagespeed"
+          id='pagespeed'
           footNote={(
-            <span>Click on a data point to see the Google PageSpeed report. Shift+Click to see the Lighthouse report.<br/>Not all WebPageTest locations support Lighthouse - <a href="https://speedtracker.org/blog/using-lighthouse">click here</a> to learn more.</span>
+            <span>Click on a data point to see the Google PageSpeed report. Shift+Click to see the Lighthouse report.<br />Not all WebPageTest locations support Lighthouse - <a href='https://speedtracker.org/blog/using-lighthouse'>click here</a> to learn more.</span>
           )}
           lastResult={lastResult}
           maxValue={100}
           metrics={['pagespeed', 'lighthouse']}
           onClick={onClickPagespeed}
-          title="Google PageSpeed and Lighthouse"
-          yLabel="Score (0-100)"
+          title='Google PageSpeed and Lighthouse'
+          yLabel='Score (0-100)'
         />
 
         <Section {...this.props}
-          id="contentBreakdownBytes"
+          id='contentBreakdownBytes'
           footNote={(
             <span>Click on a data point to see the corresponding WebPageTest result</span>
           )}
@@ -98,12 +97,12 @@ class Dashboard extends React.Component {
             'breakdown.font.bytes',
             'breakdown.other.bytes'
           ]}
-          title="Content breakdown (size)"
-          yLabel="Traffic (kilobytes)"
+          title='Content breakdown (size)'
+          yLabel='Traffic (kilobytes)'
         />
 
         <Section {...this.props}
-          id="contentBreakdownRequests"
+          id='contentBreakdownRequests'
           footNote={(
             <span>Click on a data point to see the corresponding WebPageTest result</span>
           )}
@@ -118,21 +117,21 @@ class Dashboard extends React.Component {
             'breakdown.font.requests',
             'breakdown.other.requests'
           ]}
-          title="Content breakdown (requests)"
-          yLabel="Requests"
+          title='Content breakdown (requests)'
+          yLabel='Requests'
         />
-        
+
         {videoFrames.length && wptUrl &&
-          <div className="c-Section">
-            <h3 className="c-Section__title">Latest filmstrip view</h3>
-            <div className="c-Filmstrip">
+          <div className='c-Section'>
+            <h3 className='c-Section__title'>Latest filmstrip view</h3>
+            <div className='c-Filmstrip'>
               {videoFrames.map((frame, index) => {
                 const progress = `${frame._t / 1000}s`
 
                 return (
-                  <div key={index} className="c-Filmstrip__item">
-                    <p className="c-Filmstrip__progress">{progress} ({frame._vc}%)</p>
-                    <img className="c-Filmstrip__image" src={Utils.getVideoFrameURL(wptUrl, lastResult.id, frame)}/>
+                  <div key={index} className='c-Filmstrip__item'>
+                    <p className='c-Filmstrip__progress'>{progress} ({frame._vc}%)</p>
+                    <img className='c-Filmstrip__image' src={Utils.getVideoFrameURL(wptUrl, lastResult.id, frame)} />
                   </div>
                 )
               })}
