@@ -69,9 +69,17 @@ const traverseObject = (obj, callback, path) => {
   }
 }
 
+const getTimestampsByInterval = (timestamps, dateFrom, dateTo) => {
+  return Object.keys(timestamps).filter(timestamp => {
+    const timestampMillis = timestamp * 1000
+    return (timestampMillis >= dateFrom) && (timestampMillis <= dateTo)
+  })
+}
+
 export {
   getColor,
   getDateRangeForPeriod,
   getVideoFrameURL,
-  traverseObject
+  traverseObject,
+  getTimestampsByInterval
 }

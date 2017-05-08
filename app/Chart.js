@@ -15,15 +15,7 @@ class Chart extends React.Component {
     const dateTo = dates.to.getTime()
     const results = this.props.results
 
-    let timestamps = []
-
-    Object.keys(results).forEach(timestamp => {
-      const timestampMillis = timestamp * 1000
-
-      if ((timestampMillis >= dateFrom) && (timestampMillis <= dateTo)) {
-        timestamps.push(timestamp)
-      }
-    })
+    let timestamps = Utils.getTimestampsByInterval(results, dateFrom, dateTo)
 
     let datasets = []
 
