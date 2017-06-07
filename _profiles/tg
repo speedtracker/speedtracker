@@ -1,0 +1,10 @@
+---
+name: "The Guardian (TG)"
+default: false
+parameters:
+  connectivity: "Cable"
+  location: "Dulles:Chrome"
+  runs: 1
+  url: "https://www.theguardian.com/international"
+  video: true
+---

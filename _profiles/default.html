@@ -3,7 +3,7 @@
 # The human-friendly name of the profile. Whenever you're asked for the profile
 # ID, it refers to the name of the profile file — in this case, "default".
 #
-name: "My website"
+name: "Test"
 
 #
 # The default profile will be the one shown when accessing the root URL of your
@@ -16,7 +16,7 @@ default: true
 # with a minimum value of 12, as only two scheduled tests per day are allowed.
 # To disabled repeated tests, simply remove this property from the profile.
 #
-interval: 12
+#interval: 12
 
 #
 # WebPageTest test parameters.
@@ -28,7 +28,8 @@ parameters:
   connectivity: "Cable"
   location: "Dulles:Chrome"
   runs: 1
-  url: "https://my-website.com"
+  url: "https://www.theguardian.com/international"
+  video: true
 
 #
 # The URL of the WebPageTest instance to be used with this profile. Please note that
