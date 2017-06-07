@@ -7,7 +7,10 @@ import * as Utils from './Utils'
 class Dashboard extends React.Component {
   render () {
     const results = this.props.results
-    const timestamps = Object.keys(results)
+    const dates = Utils.getDateRangeForPeriod(this.props.period)
+    const dateFrom = dates.from.getTime()
+    const dateTo = dates.to.getTime()
+    const timestamps = Utils.getTimestampsByInterval(results, dateFrom, dateTo)
     const lastTs = timestamps[timestamps.length - 1]
     const lastResult = results[lastTs]
     const videoFrames = (lastResult && lastResult.videoFrames) || []
