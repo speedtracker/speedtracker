@@ -1,9 +1,16 @@
+body {
+  padding-top: 90px;
+}
+
 .c-TopBar {
   background-color: #EA8C55;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.45);
   color: white;
-  margin-bottom: 40px;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
 
   @include media('>=medium') {
     text-align: left;
