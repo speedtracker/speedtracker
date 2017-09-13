@@ -42,6 +42,10 @@ budgets:
     max: 3000
     alerts: ["slackAlert", "emailAlert"]
   -
+    metric: domInteractive
+    max: 3000
+    alerts: ["slackAlert"]
+  -
     metric: loadTime
     max: 5000
     alerts: ["slackAlert"]
