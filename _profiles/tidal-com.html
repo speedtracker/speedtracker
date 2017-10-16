@@ -3,13 +3,13 @@
 # The human-friendly name of the profile. Whenever you're asked for the profile
 # ID, it refers to the name of the profile file — in this case, "default".
 #
-name: "TIDAL Web App"
+name: "TIDAL.com"
 
 #
 # The default profile will be the one shown when accessing the root URL of your
 # SpeedTracker site.
 #
-default: true
+default: false
 
 #
 # If you want tests to be repeated automatically, you can an interval (in hours)
@@ -19,24 +19,13 @@ default: true
 interval: 24
 
 #
-# WebPageTest test parameters.
-# For a list of supported params, check:
-#
-# https://www.npmjs.com/package/webpagetest
+# WebPageTest test parameters
 #
 parameters:
   connectivity: "Cable"
   location: "Dulles:Chrome"
   runs: 1
-  url: "https://listen.tidal.com"
-
-#
-# The URL of the WebPageTest instance to be used with this profile. Please note that
-# if you decide to encrypt this URL, the filmstrip section will not be displayed.
-#
-# If you leave this field out, the public instance of WebPageTest will be used.
-#
-#wptUrl: https://www.webpagetest.org
+  url: "https://tidal.com"
 
 #
 # Performance budgets are defined with a metric id, a max/min allowed value
@@ -51,13 +40,13 @@ budgets:
   -
     metric: SpeedIndex
     max: 3000
-    alerts: ["slackAlert"]
+  -
+    metric: domInteractive
+    max: 3000
   -
     metric: loadTime
     max: 5000
-    alerts: ["slackAlert"]
   -
     metric: fullyLoaded
     max: 10000
-    alerts: ["slackAlert"]
 ---
