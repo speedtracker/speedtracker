@@ -1,13 +1,21 @@
 {
   "name": "speedtracker",
-  "version": "1.0.1",
+  "version": "1.2.3",
   "description": "Website performance monitoring tool",
   "main": "index.js",
   "scripts": {
     "start": "jekyll serve",
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
-    "watch": "./node_modules/webpack/bin/webpack.js --watch"
+    "lint": "standard --verbose | snazzy",
+    "watch": "./node_modules/webpack/bin/webpack.js --watch",
+    "postinstall": "opencollective postinstall"
   },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "repository": "speedtracker/speedtracker",
   "author": "Eduardo Bouças <mail@eduardoboucas.com> (https://eduardoboucas.com)",
   "license": "MIT",
   "devDependencies": {
@@ -15,6 +23,8 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-es2016": "^6.11.3",
     "babel-preset-react": "^6.11.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
@@ -23,9 +33,15 @@
     "chart.js": "^2.2.2",
     "es6-promise": "^3.3.1",
     "object-path": "^0.11.2",
+    "opencollective": "^1.0.3",
     "query-string": "^4.2.3",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "whatwg-fetch": "^1.0.0"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/speedtracker",
+    "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }

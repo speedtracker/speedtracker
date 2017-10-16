@@ -1,12 +1,14 @@
 <img src="https://speedtracker.org/assets/images/logo-full-square-inverted.png" width="300">
 
 # Front-end
-
-> v1.0.1
+[![Backers on Open Collective](https://opencollective.com/speedtracker/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/speedtracker/sponsors/badge.svg)](#sponsors) 
+> v1.2.3
 
 *Visualisation layer and data store for SpeedTracker*
 
 ---
+
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
 ## Installation
 
@@ -27,13 +29,13 @@
   ```
   npm install
   ```
-  
+
 1. Start the Jekyll server
 
   ```
   jekyll serve --watch --port SOME_PORT
   ```
-  
+
 1. Start Webpack
 
   ```
@@ -45,8 +47,38 @@
   ```
   npm run build
   ```
-  
+
 ---
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
+<a href="graphs/contributors"><img src="https://opencollective.com/speedtracker/contributors.svg?width=890" /></a>
+
+
+## Backers
+
+Thank you to all our backers! [[Become a backer](https://opencollective.com/speedtracker#backer)]
+
+<a href="https://opencollective.com/speedtracker#backers" target="_blank"><img src="https://opencollective.com/speedtracker/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Thank you to all our sponsors! (please ask your company to also support this open source project by [becoming a sponsor](https://opencollective.com/speedtracker#sponsor))
+
+<a href="https://opencollective.com/speedtracker/sponsor/0/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/1/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/2/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/3/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/4/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/5/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/6/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/7/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/8/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/speedtracker/sponsor/9/website" target="_blank"><img src="https://opencollective.com/speedtracker/sponsor/9/avatar.svg"></a>
+
+
 
 ## License
 

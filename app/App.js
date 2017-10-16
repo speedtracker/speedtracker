@@ -14,7 +14,7 @@ const parseUrl = require('query-string').parse
 require('es6-promise').polyfill()
 
 class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     let activeProfile = window.PROFILES.find(profile => profile.active)
@@ -34,7 +34,7 @@ class App extends React.Component {
     this.baseUrl = window.BASE_URL || ''
   }
 
-  _fetchData(dateFrom, dateTo) {
+  _fetchData (dateFrom, dateTo) {
     let monthFrom = (dateFrom.getFullYear() * 100) + dateFrom.getMonth() + 1
     let monthTo = (dateTo.getFullYear() * 100) + dateTo.getMonth() + 1
 
@@ -48,7 +48,7 @@ class App extends React.Component {
 
       const path = `${this.baseUrl}/results/${this.state.profile.slug}/${year}/${month}.json`
 
-      return fetch(path).then(response => {
+      return window.fetch(path).then(response => {
         return response.json()
       })
     })
@@ -77,7 +77,7 @@ class App extends React.Component {
     })
   }
 
-  _changePeriod(newPeriod) {
+  _changePeriod (newPeriod) {
     this.setState({
       period: newPeriod
     })
@@ -85,14 +85,14 @@ class App extends React.Component {
     window.history.pushState(null, null, `?period=${newPeriod}`)
   }
 
-  _changeProfile(newProfile) {
+  _changeProfile (newProfile) {
     this.setState({
       loading: true
     })
 
     window.history.pushState(null, null, `${this.baseUrl}/${newProfile}/?period=${this.state.period}`)
 
-    fetch(`${this.baseUrl}/profiles.json`).then(response => {
+    window.fetch(`${this.baseUrl}/profiles.json`).then(response => {
       return response.json()
     }).then(profiles => {
       const profile = profiles.find(profile => profile.slug === newProfile)
@@ -105,13 +105,13 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const dateRange = Utils.getDateRangeForPeriod(this.state.period)
 
     this._fetchData(dateRange.from, dateRange.to)
   }
 
-  componentDidUpdate(oldProps, oldState) {
+  componentDidUpdate (oldProps, oldState) {
     if ((oldState.period !== this.state.period) || (oldState.profile !== this.state.profile)) {
       const dateRange = Utils.getDateRangeForPeriod(this.state.period)
 
@@ -119,19 +119,19 @@ class App extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <TopBar {...this.state} 
-                onPeriodChange={this._changePeriod.bind(this)}
-                onProfileChange={this._changeProfile.bind(this)}/>
-        
-        {this.state.loading ? <Loader/> : <Dashboard {...this.state}/>}
+        <TopBar {...this.state}
+          onPeriodChange={this._changePeriod.bind(this)}
+          onProfileChange={this._changeProfile.bind(this)} />
 
-        <Footer/>
+        {this.state.loading ? <Loader /> : <Dashboard {...this.state} />}
+
+        <Footer />
       </div>
     )
   }
 }
 
-render(<App/>, document.getElementById('root'))
+render(<App />, document.getElementById('root'))

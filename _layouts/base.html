@@ -14,7 +14,16 @@ layout: null
 <head>
   {% include meta.html %}
 
-  <link rel="stylesheet" type="text/css" href="{{ baseUrl }}/css/main.css">
+  {% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', '{{ site.google_analytics_key }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  {% endif %}
+
+  <link rel="stylesheet" type="text/css" href="{{ baseUrl }}/css/main.css?v={{ site.version }}">
 </head>
 <body>
   <div id="root"></div>
@@ -24,6 +33,6 @@ layout: null
   <script>window.BASE_URL = {{ baseUrl | jsonify }}</script>
   <script>window.PROFILES = {% include listAllProfiles %}</script>
   <script>window.TESTS = {% include listProfileTests profile=currentProfile %}</script>
-  <script src="{{ baseUrl }}/bundle.js"></script>
+  <script src="{{ baseUrl }}/bundle.js?v={{ site.version }}"></script>
 </body>
 </html>
