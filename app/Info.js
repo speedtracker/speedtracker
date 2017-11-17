@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom' // eslint-disable-line no-unused-vars
 
 class Info extends React.Component {
   static get defaultProps () {
