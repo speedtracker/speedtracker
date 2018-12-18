@@ -1,1 +1,0 @@
-{% assign paths = '' | split: '/' %}{% for file in site.static_files %}{% assign filePath = file.path | split: '/' %}{% if filePath[2] == include.profile %}{% assign filename = filePath[4] | split: '.' %}{% assign date = filePath[3] | append: filename[0] | plus: 0 %}{% assign paths = paths | push: date %}{% endif %}{% endfor %}{{ paths | jsonify }}

@@ -1,6 +1,2 @@
-.sass-cache
-.jekyll-metadata
-_site/
-node_modules/*
-npm-debug.log
-results/*/*
+bundle.js*
+node_modules/
