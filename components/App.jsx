@@ -8,7 +8,6 @@ import Loader from './Loader.jsx'
 import TopBar from './TopBar.jsx'
 import * as Utils from './../lib/Utils'
 
-const objectPath = require('object-path')
 const parseUrl = require('query-string').parse
 
 require('es6-promise').polyfill()
