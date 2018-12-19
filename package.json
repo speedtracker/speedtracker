@@ -1,6 +1,6 @@
 {
   "name": "@speedtracker/dashboard",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Website performance monitoring tool",
   "main": "bundle.js",
   "scripts": {

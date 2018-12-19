@@ -45,7 +45,7 @@ class App extends React.Component {
       loading: true
     })
 
-    if (typeof activeProfile !== 'string') {
+    if (!activeProfile) {
       return
     }
 
