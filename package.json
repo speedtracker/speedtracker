@@ -1,13 +1,12 @@
 {
   "name": "@speedtracker/dashboard",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Website performance monitoring tool",
   "main": "bundle.js",
   "scripts": {
-    "build:app": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p --mode=production",
-    "build:profiles": "node scripts/build-profiles profiles.js",
+    "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p --mode=production",
     "lint": "standard --verbose | snazzy",
-    "prepublishOnly": "npm run build:app",
+    "prepublishOnly": "npm run build",
     "serve": "webpack-dev-server --mode=development",
     "start": "npm-run-all --parallel serve watch",
     "watch": "./node_modules/webpack/bin/webpack.js --watch --mode=development"

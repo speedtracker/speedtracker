@@ -16,12 +16,17 @@ class App extends React.Component {
   constructor (props) {
     super(props)
 
-    let urlParameters = parseUrl(window.location.search)
-    let profiles = window.PROFILES || []
-    let activeProfile = profiles.find((profile, index) => {
+    const urlParameters = parseUrl(window.location.search)
+    const config = window.__SPEEDTRACKER_CONFIG || {}
+    const profiles = Object.keys(config.profiles || {}).map(name => {
+      return Object.assign({}, config.profiles[name], {
+        slug: name
+      })
+    })
+    const activeProfile = profiles.find((profile, index) => {
       return urlParameters.profile === profile.slug
     }) || profiles[0]
-    let period = Constants.periods.indexOf(urlParameters.period) > -1
+    const period = Constants.periods.indexOf(urlParameters.period) > -1
       ? urlParameters.period
       : 'week'
 
@@ -49,7 +54,7 @@ class App extends React.Component {
       return
     }
 
-    let url = `/.netlify/functions/results?page=${activeProfile.slug}&from=${from}&to=${to}`
+    let url = `/.netlify/functions/results?profile=${activeProfile.slug}&from=${from}&to=${to}`
 
     window.fetch(url).then(response => {
       return response.json()
