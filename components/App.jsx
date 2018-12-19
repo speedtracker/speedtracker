@@ -17,7 +17,7 @@ class App extends React.Component {
     super(props)
 
     let urlParameters = parseUrl(window.location.search)
-    let profiles = window.PROFILES
+    let profiles = window.PROFILES || []
     let activeProfile = profiles.find((profile, index) => {
       return urlParameters.profile === profile.slug
     }) || profiles[0]
@@ -45,7 +45,11 @@ class App extends React.Component {
       loading: true
     })
 
-    let url = `/.netlify/functions/get?page=${activeProfile.slug}&from=${from}&to=${to}`
+    if (typeof activeProfile !== 'string') {
+      return
+    }
+
+    let url = `/.netlify/functions/results?page=${activeProfile.slug}&from=${from}&to=${to}`
 
     window.fetch(url).then(response => {
       return response.json()

@@ -89,7 +89,7 @@ class TopBar extends React.Component {
 
             <Dropdown
               onChange={e => onProfileChange(e.target.value)}
-              value={activeProfile.slug}
+              value={activeProfile && activeProfile.slug}
             >
               {profiles.map(profile => (
                 <option key={profile.slug} value={profile.slug}>
