@@ -27,18 +27,13 @@ class Dashboard extends React.Component {
       : 'https://www.webpagetest.org'
     const profileUrl = activeProfile.parameters.url
 
-    const onClickPagespeed = function (event, data) {
+    const onClickLighthouse = function (event, data) {
       const index = data[0]._index
       const timestamp = results[index].timestamp
       const encodedUrl = encodeURIComponent(profileUrl)
-      const insightsUrl = `https://developers.google.com/speed/pagespeed/insights/?url=${encodedUrl}`
       const lighthouseUrl = `https://www.webpagetest.org/lighthouse.php?test=${results[index].id}`
 
-      if (event.shiftKey) {
-        window.open(lighthouseUrl, '_blank')
-      } else {
-        window.open(insightsUrl, '_blank')
-      }
+      window.open(lighthouseUrl, '_blank')
     }
 
     const onClickWpt = function (event, data) {
@@ -79,15 +74,15 @@ class Dashboard extends React.Component {
           />
         </Section>
 
-        <Section title='Google PageSpeed and Lighthouse'>
+        <Section title='Google Lighthouse'>
           <DataSection
             id='pagespeed'
             footNote={(
-              <span>Click on a data point to see the Google PageSpeed report. Shift+Click to see the Lighthouse report.<br />Not all WebPageTest locations support Lighthouse - <a href='https://speedtracker.org/blog/using-lighthouse'>click here</a> to learn more.</span>
+              <span>Click on a data point to see the the Lighthouse report.<br />Not all WebPageTest locations support Lighthouse - <a href='https://speedtracker.org/blog/using-lighthouse'>click here</a> to learn more.</span>
             )}
             maxValue={100}
-            metrics={['pagespeed', 'lighthouse']}
-            onClick={onClickPagespeed}
+            metrics={['lighthouse']}
+            onClick={onClickLighthouse}
             state={state}
             yLabel='Score (0-100)'
           />
