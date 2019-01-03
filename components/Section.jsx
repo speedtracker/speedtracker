@@ -1,4 +1,3 @@
-import {render} from 'react-dom' // eslint-disable-line no-unused-vars
 import Chart from './Chart.jsx'
 import Constants from './../lib/Constants'
 import Info from './Info.jsx'

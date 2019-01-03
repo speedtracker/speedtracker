@@ -1,4 +1,3 @@
-import {render} from 'react-dom' // eslint-disable-line no-unused-vars
 import Chart from './Chart.jsx'
 import Constants from './../lib/Constants'
 import Info from './Info.jsx'
@@ -56,7 +55,8 @@ export default class DataSection extends React.Component {
         <Indicators>
           {metrics.map((key, index) => {
             let metric = Constants.metrics[key]
-            let value = results.slice(-1)[0][key]
+            let latestResult = results.slice(-1)[0]
+            let value = latestResult && latestResult[key]
 
             if (typeof value !== 'undefined') {
               if (typeof metric.transform === 'function') {
@@ -87,10 +87,11 @@ export default class DataSection extends React.Component {
 
           {budgets.map((budget, index) => {
             const metric = Constants.metrics[budget.metric]
-            const value = results.slice(-1)[0][budget.metric]
+            const latestResult = results.slice(-1)[0]
+            const value = latestResult && latestResult[budget.metric]
 
             let budgetValue = budget.max || budget.min || 0
-            let successState = (
+            let successState = value !== undefined && (
               budget.max && (value > budgetValue) ||
               budget.min && (value < budgetValue)
             ) ? 'danger' : 'success'

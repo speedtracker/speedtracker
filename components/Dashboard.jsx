@@ -1,4 +1,3 @@
-import {render} from 'react-dom' // eslint-disable-line no-unused-vars
 import * as Utils from './../lib/Utils'
 import DataSection from './DataSection.jsx'
 import Filmstrip from './Filmstrip.jsx'

@@ -1,4 +1,3 @@
-import {render} from 'react-dom' // eslint-disable-line no-unused-vars
 import React from 'react'
 import styled, {css, keyframes} from 'styled-components'
 

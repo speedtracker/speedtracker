@@ -1,11 +1,10 @@
-import React from 'react'
-import { render } from 'react-dom'
-
+import {render} from 'react-dom'
 import Constants from './../lib/Constants'
 import Dashboard from './Dashboard.jsx'
 import Footer from './Footer.jsx'
 import Loader from './Loader.jsx'
 import TopBar from './TopBar.jsx'
+import React from 'react'
 import * as Utils from './../lib/Utils'
 
 const parseUrl = require('query-string').parse
@@ -30,6 +29,8 @@ class App extends React.Component {
       ? urlParameters.period
       : 'week'
 
+    this.config = config
+    this.baseUrl = window.BASE_URL || ''
     this.state = {
       activeProfile,
       loading: true,
@@ -37,8 +38,6 @@ class App extends React.Component {
       profiles: profiles,
       results: null
     }
-
-    this.baseUrl = window.BASE_URL || ''
   }
 
   _fetchData (dateFrom, dateTo) {
@@ -54,7 +53,9 @@ class App extends React.Component {
       return
     }
 
-    let url = `/.netlify/functions/results?profile=${activeProfile.slug}&from=${from}&to=${to}`
+    let baseUrl = (this.config && this.config.urls && this.config.urls.results) ||
+      '/.netlify/functions/results'
+    let url = `${baseUrl}?profile=${activeProfile.slug}&from=${from}&to=${to}`
 
     window.fetch(url).then(response => {
       return response.json()

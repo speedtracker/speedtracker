@@ -1,4 +1,3 @@
-import {render} from 'react-dom' // eslint-disable-line no-unused-vars
 import Logo from './Logo.jsx'
 import LogoTitle from './LogoTitle.jsx'
 import React from 'react'

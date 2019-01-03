@@ -1,5 +1,4 @@
 import * as Utils from './../lib/Utils'
-import {render} from 'react-dom' // eslint-disable-line no-unused-vars
 import ChartJS from 'chart.js'
 import Constants from './../lib/Constants'
 import React from 'react'
@@ -25,7 +24,8 @@ const PlaceholderChartWrapper = styled(ChartWrapper)`
     right: 0;
     top: 50%;
     text-align: center;
-    content: 'We need some more tests results to draw a chart.'
+    font-family: 'Roboto Condensed', 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
+    content: 'No results to display'
   }  
 `
 const ChartFooter = styled.p`
