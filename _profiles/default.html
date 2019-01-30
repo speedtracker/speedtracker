@@ -3,7 +3,7 @@
 # The human-friendly name of the profile. Whenever you're asked for the profile
 # ID, it refers to the name of the profile file — in this case, "default".
 #
-name: "My website"
+name: "Matalan - Dev Environment(3GFast)"
 
 #
 # The default profile will be the one shown when accessing the root URL of your
@@ -16,7 +16,7 @@ default: true
 # with a minimum value of 12, as only two scheduled tests per day are allowed.
 # To disabled repeated tests, simply remove this property from the profile.
 #
-interval: 12
+# interval: 12
 
 #
 # WebPageTest test parameters.
@@ -25,10 +25,10 @@ interval: 12
 # https://www.npmjs.com/package/webpagetest
 #
 parameters:
-  connectivity: "Cable"
-  location: "Dulles:Chrome"
-  runs: 1
-  url: "https://my-website.com"
+  connectivity: "3GFast"
+  location: "ec2-eu-west-1:Chrome"
+  runs: 3
+  url: "https://secure-mountain-32801.herokuapp.com/"
 
 #
 # The URL of the WebPageTest instance to be used with this profile. Please note that
@@ -47,13 +47,40 @@ parameters:
 #
 # https://github.com/speedtracker/speedtracker-api/blob/master/lib/SpeedTracker.js#L18-L37
 #
-#budgets:
-#  -
-#    metric: TTFB
-#    max: 600
-#    alerts: ["emailAlert", "slackAlert"]
-#  -
-#    metric: firstPaint
-#    max: 2000
-#    alerts: ["slackAlert"]
+budgets:
+# Metric: Time To First Byte/Back-end 
+# Best we have seen is 1.91s without fastly on Dev
+   -
+     metric: TTFB
+     max: 1800
+     alerts: ["slackAlert"]
+
+# Metric: Start rendering / First Paint
+# Best we have seen is 4.2s without fastly on Dev.
+   -
+     metric: firstPaint
+     max: 4000
+     alerts: ["slackAlert"]
+
+# Metric: Page fully loaded
+# Ideally this has to be 3000
+# But with out fastly, best we have seen is 10.41s on Dev
+   -
+     metric: fullyLoaded
+     max: 10000
+     alerts: ["slackAlert"]
+
+# Metric: Speed Index
+# Best we have seen is 6.31s with out fastly on Dev
+   -
+     metric: SpeedIndex
+     max: 6000
+     alerts: ["slackAlert"]
+
+# Metric: Load time
+# Best we have seen is 8.82s without fastly on Dev
+   -
+     metric: loadTime
+     max: 8000
+     alerts: ["slackAlert"]
 ---
